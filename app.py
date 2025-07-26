@@ -10,18 +10,16 @@ st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600&display=swap');
 
-    /* Global Background */
     html, body, [class*="css"] {
         font-family: 'SF Pro Display', sans-serif;
-        background-color: #0e0e0e;  /* Dunkles Schwarz */
-        color: #0e0e0e !important;
+        background-color: #ffffff;
     }
 
     /* Titel Styling */
     h1 {
         font-size: 2.5rem !important;
         font-weight: 600 !important;
-        color: #0e0e0e;
+        color: #000000;
         text-align: center;
         margin-bottom: 1rem;
     }
@@ -30,7 +28,7 @@ st.markdown("""
     h2 {
         font-size: 1.4rem !important;
         font-weight: 500 !important;
-        color: #f0f0f0;
+        color: #333333;
         margin-top: 2rem;
         margin-bottom: 0.5rem;
     }
@@ -52,23 +50,16 @@ st.markdown("""
 
     /* Upload Box Styling */
     .stFileUploader {
-        background-color: #1c1c1e;  /* Apple Dark Grau */
-        border: 2px dashed #3a3a3c;
+        background-color: #f5f5f7;
+        border: 2px dashed #d1d1d6;
         border-radius: 16px;
         padding: 1.5rem;
         text-align: center;
-        color: #0e0e0e;
-    }
-
-    /* DataFrame Dark Mode */
-    .dataframe {
-        background-color: #1c1c1e !important;
-        color: white !important;
     }
     </style>
 """, unsafe_allow_html=True)
 
-st.title("📄 PDF-Rechnungsanalysator (Dark Mode)")
+st.title("📄 PDF-Rechnungsanalysator")
 
 # ✅ Session-State für Excel-Daten
 if "data" not in st.session_state:
