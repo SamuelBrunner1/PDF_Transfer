@@ -5,22 +5,21 @@ from ocr_reader import ocr_from_pdf
 from parser import parse_invoice
 import io
 
-# ✅ Apple Dark Mode CSS
+# ✅ Apple-Style CSS
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600&display=swap');
 
     html, body, [class*="css"] {
         font-family: 'SF Pro Display', sans-serif;
-        background-color: #121212; /* Schwarz */
-        color: #ffffff; /* Weißer Text */
+        background-color: #ffffff;
     }
 
     /* Titel Styling */
     h1 {
         font-size: 2.5rem !important;
         font-weight: 600 !important;
-        color: #ffffff;
+        color: #000000;
         text-align: center;
         margin-bottom: 1rem;
     }
@@ -29,7 +28,7 @@ st.markdown("""
     h2 {
         font-size: 1.4rem !important;
         font-weight: 500 !important;
-        color: #f5f5f7;
+        color: #333333;
         margin-top: 2rem;
         margin-bottom: 0.5rem;
     }
@@ -51,17 +50,16 @@ st.markdown("""
 
     /* Upload Box Styling */
     .stFileUploader {
-        background-color: #1c1c1e;
-        border: 2px dashed #2c2c2e;
+        background-color: #f5f5f7;
+        border: 2px dashed #d1d1d6;
         border-radius: 16px;
         padding: 1.5rem;
         text-align: center;
-        color: #ffffff;
     }
     </style>
 """, unsafe_allow_html=True)
 
-st.title("📄 PDF-Rechnungsanalysator (Dark Mode)")
+st.title("📄 PDF-Rechnungsanalysator")
 
 # ✅ Session-State für Excel-Daten
 if "data" not in st.session_state:
@@ -73,6 +71,7 @@ pdf_files = st.file_uploader("Wähle eine oder mehrere PDF-Dateien", type="pdf",
 
 if pdf_files:
     for pdf_file in pdf_files:
+        # Direkt aus Bytes arbeiten (kein lokales Speichern)
         pdf_bytes = pdf_file.read()
 
         # Text extrahieren
@@ -92,13 +91,13 @@ if pdf_files:
         # In Session-State speichern
         st.session_state["data"].append(data)
 
-# ✅ Excel-Datei generieren
+# ✅ Excel-Datei generieren und Download anbieten
 st.header("2. Excel-Datei generieren")
 if st.session_state["data"]:
     df = pd.DataFrame(st.session_state["data"])
     st.dataframe(df)
 
-    # Excel im Speicher erstellen
+    # Excel-Datei im Speicher erstellen
     buffer = io.BytesIO()
     with pd.ExcelWriter(buffer, engine="openpyxl") as writer:
         df.to_excel(writer, index=False)
