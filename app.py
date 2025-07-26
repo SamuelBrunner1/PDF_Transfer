@@ -21,7 +21,7 @@ st.markdown("""
     h1 {
         font-size: 2.5rem !important;
         font-weight: 600 !important;
-        color: #ffffff;
+        color: #0e0e0e;
         text-align: center;
         margin-bottom: 1rem;
     }
@@ -57,7 +57,7 @@ st.markdown("""
         border-radius: 16px;
         padding: 1.5rem;
         text-align: center;
-        color: #ffffff;
+        color: #0e0e0e;
     }
 
     /* DataFrame Dark Mode */
