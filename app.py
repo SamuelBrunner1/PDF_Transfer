@@ -14,7 +14,7 @@ st.markdown("""
     html, body, [class*="css"] {
         font-family: 'SF Pro Display', sans-serif;
         background-color: #0e0e0e;  /* Dunkles Schwarz */
-        color: #ffffff !important;
+        color: #0e0e0e !important;
     }
 
     /* Titel Styling */
