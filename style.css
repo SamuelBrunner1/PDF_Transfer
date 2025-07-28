@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600&display=swap');
+
+/* Global Font & Background */
+html, body, [class*="css"] {
+    font-family: 'SF Pro Display', sans-serif;
+    background-color: #b7b7c5;
+    color: #ffffff !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* Hauptcontainer */
+.stApp, .block-container {
+background-color: #1C1C1E !important;
+    color: #ffffff !important;
+}
+
+/* Überschreibe ALLE Texte */
+*, h1, h2, h3, h4, h5, h6, p, span, div, label, button {
+    color: #ffffff !important;
+}
+
+/* Buttons im Apple-Style */
+.stButton > button, .stDownloadButton > button, .stForm button {
+    background-color: #007aff !important;
+    color: #ffffff !important;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.8em 2em;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+.stButton > button:hover, .stDownloadButton > button:hover, .stForm button:hover {
+    background-color: #9c7187 !important;
+    color: #ffffff !important;
+}
+
+/* Upload Box */
+.stFileUploader {
+    background-color: #2C2C2E;  /* Apple-Dark-Mode Hintergrund */
+    border: 2px dashed #636366; /* Dezente graue Umrandung */
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    color: #FFFFFF !important;  /* Textfarbe */
+
+    /* Hack: Wir greifen auf Kinder-Elemente über nested Styles zu */
+}
+.stFileUploader * {
+    background-color: #1C1C1E !important; /* Innerer Bereich dunkler */
+    color: #FFFFFF !important;           /* Text innen weiß */
+    border: none !important;             /* Entfernt helle Ränder */
+}
+
+
+
+/* Eingabefelder */
+input[type="text"], textarea, .stTextInput input {
+    background-color: #2b2b33 !important;
+    color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+    border-radius: 8px;
+    padding: 0.5em;
+    font-size: 1rem;
+}
+
+/* Placeholder-Text */
+input::placeholder, textarea::placeholder {
+    color: #ffffff !important; /* Weiß */
+    opacity: 0.6;
+}
+
+/* Checkbox Labels */
+.stCheckbox label {
+    color: #ffffff !important;
+    font-size: 1rem;
+}
+
+/* Tabellen */
+.stDataFrame, .stDataFrame table, .stDataFrame th, .stDataFrame td {
+    background-color: #3a3a3a !important;
+    color: #ffffff !important;
+}
+
+/* JSON Output */
+.stJson {
+    background-color: #8c8c97 !important;
+    color: #ffffff !important;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+/* Sidebar */
+.css-1d391kg, .css-12oz5g7 {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+}
+
+/* Entfernt die Streamlit Toolbar */
+header[data-testid="stHeader"] {
+    background: none !important;
+    color: transparent;
+    height: 0rem;
+}

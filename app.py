@@ -1,103 +1,98 @@
 import streamlit as st
 import pandas as pd
+import io
+import re
+
 from pdf_reader import extract_text_from_pdf
 from ocr_reader import ocr_from_pdf
-from parser import parse_invoice
-import io
+from patterns import FIELD_PATTERNS
+from nlp_extractor import extract_named_entities  # Falls du NLP nutzt
 
-# ✅ Apple-Style CSS
-st.markdown("""
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600&display=swap');
+# CSS laden
+with open("style.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-    html, body, [class*="css"] {
-        font-family: 'SF Pro Display', sans-serif;
-        background-color: #ffffff;
-    }
+st.title("📄 PDF-Rechnungsanalysator (Dark Mode)")
 
-    /* Titel Styling */
-    h1 {
-        font-size: 2.5rem !important;
-        font-weight: 600 !important;
-        color: #000000;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-
-    /* Header Styling */
-    h2 {
-        font-size: 1.4rem !important;
-        font-weight: 500 !important;
-        color: #333333;
-        margin-top: 2rem;
-        margin-bottom: 0.5rem;
-    }
-
-    /* Buttons Apple-Look */
-    .stDownloadButton > button, .stButton > button {
-        background-color: #007aff;
-        color: white;
-        border-radius: 12px;
-        font-size: 1rem;
-        font-weight: 500;
-        padding: 0.8em 2em;
-        border: none;
-        transition: all 0.3s ease-in-out;
-    }
-    .stDownloadButton > button:hover, .stButton > button:hover {
-        background-color: #005ecb;
-    }
-
-    /* Upload Box Styling */
-    .stFileUploader {
-        background-color: #f5f5f7;
-        border: 2px dashed #d1d1d6;
-        border-radius: 16px;
-        padding: 1.5rem;
-        text-align: center;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-st.title("📄 PDF-Rechnungsanalysator")
-
-# ✅ Session-State für Excel-Daten
+# Session-State
 if "data" not in st.session_state:
     st.session_state["data"] = []
+if "custom_fields" not in st.session_state:
+    st.session_state["custom_fields"] = []
 
-# ✅ Mehrere PDFs hochladen
-st.header("1. PDF-Dateien hochladen und analysieren")
-pdf_files = st.file_uploader("Wähle eine oder mehrere PDF-Dateien", type="pdf", accept_multiple_files=True)
+# --- Auswahl der Standard-Felder ---
+st.header("🔍 Wähle Felder zur Extraktion")
+selected_fields = st.multiselect(
+    "Standard-Felder auswählen:",
+    options=list(FIELD_PATTERNS.keys()),
+    default=["Rechnungsnummer", "Datum", "Betrag (€)"]
+)
 
-if pdf_files:
+# --- Eigene Felder ---
+st.header("➕ Eigene Felder hinzufügen")
+with st.form("custom_field_form"):
+    field_name = st.text_input("Feldname (z. B. Verwendungszweck)")
+    submitted = st.form_submit_button("Feld hinzufügen")
+    if submitted and field_name:
+        if field_name in FIELD_PATTERNS:
+            if field_name not in st.session_state["custom_fields"]:
+                st.session_state["custom_fields"].append(field_name)
+            st.success(f"Feld '{field_name}' hinzugefügt!")
+        else:
+            st.error("Unbekannter Feldname. Bitte wähle aus den unterstützten Feldern.")
+
+# --- Aktive Extraktionsfelder ---
+if selected_fields or st.session_state["custom_fields"]:
+    st.subheader("✅ Aktive Extraktionsfelder")
+    for field in selected_fields + st.session_state["custom_fields"]:
+        pattern = FIELD_PATTERNS.get(field, "-/-")
+        st.write(f"✔ {field} → `{pattern}`")
+
+# --- PDF-Upload ---
+st.header("📂 PDF-Dateien hochladen und analysieren")
+pdf_files = st.file_uploader(
+    "Lade eine oder mehrere PDFs hoch", type="pdf", accept_multiple_files=True
+)
+
+if pdf_files and st.button("Analyse starten"):
+    st.session_state["data"] = []  # ✅ Session-Daten zurücksetzen
+
     for pdf_file in pdf_files:
-        # Direkt aus Bytes arbeiten (kein lokales Speichern)
         pdf_bytes = pdf_file.read()
-
-        # Text extrahieren
         text = extract_text_from_pdf(io.BytesIO(pdf_bytes))
+
         if not text.strip():
-            st.warning(f"Kein Text in {pdf_file.name} gefunden, OCR wird verwendet...")
+            st.warning(f"OCR wird verwendet für {pdf_file.name}...")
             text = ocr_from_pdf(io.BytesIO(pdf_bytes))
 
-        st.subheader(f"Extrahierter Text aus {pdf_file.name}:")
+        st.subheader(f"📑 {pdf_file.name}")
         st.text(text)
 
-        # Daten parsen
-        data = parse_invoice(text)
-        st.subheader("Geparste Daten:")
-        st.json(data)
+        # --- Parsing ---
+        parsed_data = {}
+        for field in selected_fields + st.session_state["custom_fields"]:
+            pattern = FIELD_PATTERNS.get(field)
+            if pattern:
+                match = re.search(pattern, text)
+                parsed_data[field] = match.group(1) if match else "Nicht gefunden"
+            else:
+                parsed_data[field] = "Nicht definiert"
 
-        # In Session-State speichern
-        st.session_state["data"].append(data)
+        # ✅ Nur speichern, wenn sinnvolle Daten vorhanden sind
+        if any(val != "Nicht gefunden" for val in parsed_data.values()):
+            st.session_state["data"].append(parsed_data)
+            st.success(f"Erfolgreich extrahiert aus: {pdf_file.name}")
+        else:
+            st.warning(f"Keine passenden Daten in {pdf_file.name} gefunden.")
 
-# ✅ Excel-Datei generieren und Download anbieten
-st.header("2. Excel-Datei generieren")
+        st.json(parsed_data)
+
+# --- Excel-Download ---
 if st.session_state["data"]:
+    st.header("📥 Ergebnisse als Excel-Datei")
     df = pd.DataFrame(st.session_state["data"])
     st.dataframe(df)
 
-    # Excel-Datei im Speicher erstellen
     buffer = io.BytesIO()
     with pd.ExcelWriter(buffer, engine="openpyxl") as writer:
         df.to_excel(writer, index=False)
@@ -106,6 +101,6 @@ if st.session_state["data"]:
     st.download_button(
         label="📥 Excel-Datei herunterladen",
         data=buffer,
-        file_name="rechnungen.xlsx",
+        file_name="extraktion.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
