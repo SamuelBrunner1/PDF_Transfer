@@ -1,0 +1,23 @@
+Rechnung
+Berger Technik
+Industriepark 8, 2340 Mödling
+kontakt@bergertechnik.at
+Herr Leo Berger
+Re-Nr.: 001-XY-2025
+Datum der Ausstellung: 02.08.2025
+Nummer: K-4411
+PO: 441199
+Leistungszeit: Juli 2025
+Zahlung bis: 16.08.2025
+Leistungsbeschreibung:
+Montage von Netzwerktechnik
+Zwischensumme (netto): EUR 1.500,00
+USt-Betrag: EUR 300,00
+USt-Identifikationsnummer: ATU99887755
+Steuersatz: 20 %
+Gesamtbetrag (brutto): EUR 1.800,00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: Vorauskasse
+IBAN: AT621900000000123456
+BIC: SPADATW1

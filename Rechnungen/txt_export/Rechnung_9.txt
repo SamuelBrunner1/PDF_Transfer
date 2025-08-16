@@ -1,0 +1,23 @@
+Rechnung
+Fuchs Elektrohandel KG
+Edisonstraße 21, 1230 Wien
+office@fuchselektro.at
+Herr Andreas Fuchs
+Rechnung Nr: 2025-XL-77
+Rechnungsdatum: 03.08.2025
+Kunden-Nr.: ZK-8811
+Kundenauftrag: F-7733
+Lieferdatum: 30.07.2025
+Zahlung fällig: 17.08.2025
+Leistungsbeschreibung:
+Lieferung von Elektrokomponenten
+Zwischensumme (netto): EUR 3.200,00
+USt-Betrag: EUR 640,00
+USt-Identifikationsnummer: ATU44557788
+Steuersatz: USt-Satz: 20n%
+Gesamtbetrag (brutto): EUR 3.840,00
+Währung: €
+Zahlungsinformationen:
+Zahlungsart: Rechnung
+IBAN: AT123456789012345678
+BIC: BAWAATWW

@@ -1,0 +1,23 @@
+Rechnung
+Steiner Digital e.U.
+Neubaugasse 33, 1070 Wien
+vs@steinerdigital.at
+Frau Veronika Steiner
+Rechnungs-ID: 2025-09-XF
+Ausgabe: 01.08.2025
+Kundenkonto: KK2025-10
+Buchungsreferenz: D-123456
+Rechnungszeitraum: Juli 2025
+Zahlbar binnen 14 Tagen ab Ausgabedatum
+Leistungsbeschreibung:
+Online-Marketing-Paket (Premium)
+Zwischensumme (netto): EUR 1.950,00
+USt-Betrag: EUR 390,00
+USt-Identifikationsnummer: ATU55664422
+Steuersatz: USt 20%
+Gesamtbetrag (brutto): EUR 2.340,00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: Kreditkarte
+IBAN: AT881234000011117777
+BIC: OBKLAT2LXXX

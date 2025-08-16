@@ -1,0 +1,23 @@
+Rechnung
+Gruber EDV Services
+IT-Allee 5, 5020 Salzburg
+support@gruber-edv.at
+Herr Johann Gruber
+ReNr.: 8821-08-25
+Rechnung vom: 06.08.2025
+Kundennr.: 200-A1
+Referenz-Nr.: A1-22-GS
+Zeitraum: Juli 2025
+Zahlbar bis spätestens: 21.08.2025
+Leistungsbeschreibung:
+IT-Wartungspaket
+Zwischensumme (netto): EUR 1.000,00
+USt-Betrag: EUR 200,00
+USt-Identifikationsnummer: ATU33445566
+Steuersatz: 20%
+Gesamtbetrag (brutto): EUR 1.200,00
+Währung: €
+Zahlungsinformationen:
+Zahlungsart: Rechnung
+IBAN: AT771900000012345678
+BIC: STSPAT2GXXX

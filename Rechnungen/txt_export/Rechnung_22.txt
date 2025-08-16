@@ -1,0 +1,23 @@
+Rechnung
+CloudNova GmbH
+Bahnhofstraße 13, 1003 Wien
+kontakt@firma4.at
+Herr Lukas Klein
+Rech.-ID: R-2028-XYZ-04
+Ausgestellt am: 04.08.2025
+Kd-Nr: CUST-1003
+Auftragsnummer: ORD-2003
+Erbrachte Leistung am: 25.07.2025
+Zahlbar bis: 18.08.2025
+Leistungsbeschreibung:
+UX-Redesign – Paket D
+Zwischensumme (netto): EUR 1150.00
+USt-Betrag: EUR 230.00
+USt-Identifikationsnummer: ATU10037035
+Steuersatz: MwSt 20n%
+Gesamtbetrag (brutto): EUR 1380.00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: PayPal
+IBAN: AT61190430023457303
+BIC: BKAUATWW

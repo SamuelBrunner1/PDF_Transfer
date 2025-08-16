@@ -1,0 +1,23 @@
+Rechnung
+MediSoft GmbH
+Ringstraße 11, 1001 Wien
+kontakt@firma2.at
+Herr Tobias Huber
+Rech.-ID: R-2026-XYZ-02
+Ausgestellt am: 02.08.2025
+Kd-Nr: CUST-1001
+Auftragsnummer: ORD-2001
+Erbrachte Leistung am: 27.07.2025
+Zahlbar bis: 16.08.2025
+Leistungsbeschreibung:
+Webentwicklung – Paket B
+Zwischensumme (netto): EUR 1050.00
+USt-Betrag: EUR 210.00
+USt-Identifikationsnummer: ATU10012345
+Steuersatz: MwSt 20n%
+Gesamtbetrag (brutto): EUR 1260.00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: Kreditkarte
+IBAN: AT61190430023457301
+BIC: BKAUATWW

@@ -1,0 +1,23 @@
+Rechnung
+InnovaWare GmbH
+Bergstraße 15, 1005 Wien
+kontakt@firma6.at
+Herr Oliver Bauer
+Rech.-ID: R-2030-XYZ-06
+Ausgestellt am: 06.08.2025
+Kd-Nr: CUST-1005
+Auftragsnummer: ORD-2005
+Erbrachte Leistung am: 23.07.2025
+Zahlbar bis: 20.08.2025
+Leistungsbeschreibung:
+ERP-Schulung – Paket F
+Zwischensumme (netto): EUR 1250.00
+USt-Betrag: EUR 250.00
+USt-Identifikationsnummer: ATU10061725
+Steuersatz: MwSt 20n%
+Gesamtbetrag (brutto): EUR 1500.00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: Kreditkarte
+IBAN: AT61190430023457305
+BIC: BKAUATWW

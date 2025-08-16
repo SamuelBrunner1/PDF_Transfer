@@ -1,0 +1,23 @@
+Rechnung
+TK Werbedesign
+Seegasse 45, 1090 Wien
+office@tkdesign.at
+Herr Thomas König
+Rechnung #: 220008
+Datum: 06.08.2025
+Client ID: KZ0022
+Order No.: TK-8877
+Erbrachte Leistung: 03.08.2025
+Bezahlen bis spätestens: 21.08.2025
+Leistungsbeschreibung:
+Webseitenpflege & Hosting
+Zwischensumme (netto): EUR 500,00
+USt-Betrag: EUR 100,00
+USt-Identifikationsnummer: ATU12398765
+Steuersatz: 20 % USt
+Gesamtbetrag (brutto): EUR 600,00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: Kreditkarte
+IBAN: AT021100000234567890
+BIC: BKAUATWW

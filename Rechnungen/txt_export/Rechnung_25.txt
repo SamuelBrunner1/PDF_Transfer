@@ -1,0 +1,23 @@
+Rechnung
+AlphaTech GmbH
+Hauptstraße 16, 1006 Wien
+kontakt@firma7.at
+Herr Jan Berger
+Rech.-ID: R-2031-XYZ-07
+Ausgestellt am: 07.08.2025
+Kd-Nr: CUST-1006
+Auftragsnummer: ORD-2006
+Erbrachte Leistung am: 22.07.2025
+Zahlbar bis: 21.08.2025
+Leistungsbeschreibung:
+IT-Wartung – Paket G
+Zwischensumme (netto): EUR 1300.00
+USt-Betrag: EUR 260.00
+USt-Identifikationsnummer: ATU10074070
+Steuersatz: MwSt 20n%
+Gesamtbetrag (brutto): EUR 1560.00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: Lastschrift
+IBAN: AT61190430023457306
+BIC: BKAUATWW

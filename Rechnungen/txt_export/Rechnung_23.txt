@@ -1,0 +1,23 @@
+Rechnung
+DataPlus GmbH
+Waldweg 14, 1004 Wien
+kontakt@firma5.at
+Herr Simon Wagner
+Rech.-ID: R-2029-XYZ-05
+Ausgestellt am: 05.08.2025
+Kd-Nr: CUST-1004
+Auftragsnummer: ORD-2004
+Erbrachte Leistung am: 24.07.2025
+Zahlbar bis: 19.08.2025
+Leistungsbeschreibung:
+Datenmigration – Paket E
+Zwischensumme (netto): EUR 1200.00
+USt-Betrag: EUR 240.00
+USt-Identifikationsnummer: ATU10049380
+Steuersatz: MwSt 20n%
+Gesamtbetrag (brutto): EUR 1440.00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: Überweisung
+IBAN: AT61190430023457304
+BIC: BKAUATWW

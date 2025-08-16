@@ -1,0 +1,23 @@
+Rechnung
+EDER Rechtsanwälte OG
+Justizplatz 2, 2500 Baden
+lukas.eder@eder-law.at
+Herr Mag. Lukas Eder
+RECH-NR: 0009988125
+Rechnungsdatum: 02.08.2025
+Kunden-Nr: 88-ZZ
+Interne Referenz: LEGAL2025-7
+Beratungszeit: 29.07.2025
+Fälligkeit: 16.08.2025
+Leistungsbeschreibung:
+Rechtsberatung im Wettbewerbsrecht
+Zwischensumme (netto): EUR 1.000,00
+USt-Betrag: EUR 200,00
+USt-Identifikationsnummer: ATU33330000
+Steuersatz: 20 % MwSt
+Gesamtbetrag (brutto): EUR 1.200,00
+Währung: €
+Zahlungsinformationen:
+Zahlungsart: Überweisung
+IBAN: AT999988887777666655
+BIC: BAWAATWWXXX

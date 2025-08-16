@@ -1,0 +1,23 @@
+Rechnung
+DataPlus GmbH
+Waldweg 20, 1010 Wien
+kontakt@firma11.at
+Herr Simon Wagner
+Rech.-ID: R-2035-XYZ-11
+Ausgestellt am: 11.08.2025
+Kd-Nr: CUST-1010
+Auftragsnummer: ORD-2010
+Erbrachte Leistung am: 18.07.2025
+Zahlbar bis: 25.08.2025
+Leistungsbeschreibung:
+Datenmigration – Paket K
+Zwischensumme (netto): EUR 1500.00
+USt-Betrag: EUR 300.00
+USt-Identifikationsnummer: ATU10123450
+Steuersatz: MwSt 20n%
+Gesamtbetrag (brutto): EUR 1800.00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: Lastschrift
+IBAN: AT61190430023457310
+BIC: BKAUATWW

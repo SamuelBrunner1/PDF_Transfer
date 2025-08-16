@@ -1,0 +1,23 @@
+Rechnung / Invoice
+LogXpress GmbH
+Zentrale – 10002 Berlin
+service@firma23.de
+Frau Nowak, Geschäftsstelle
+Unsere Ref.: #INV/2027/D3
+Dokument vom: 04.08.2025
+Account ID: A-9002
+Interne Referenz: P/O 1002-B
+Zeitpunkt Leistung: 27.07.2025
+Bitte Ausgleich bis zum 20.08.2025
+Beschreibung der gelieferten Leistungen:
+Initialaudit lt. Vertrag
+Summe netto: 1150.00 EUR
+Steuerbetrag: 230.00 EUR
+USt-IdNr: UID-Nr.: DE500024690
+Steuersatz: gesetzl. USt 20 %
+Gesamtsumme brutto: 1380.00 EUR
+Währung: €
+Zahlweise:
+Abbuchung
+IBAN: DE50000200000000000000
+BIC: BYLADEM1001

@@ -1,0 +1,23 @@
+Rechnung
+MediSoft GmbH
+Ringstraße 17, 1007 Wien
+kontakt@firma8.at
+Herr Tobias Huber
+Rech.-ID: R-2032-XYZ-08
+Ausgestellt am: 08.08.2025
+Kd-Nr: CUST-1007
+Auftragsnummer: ORD-2007
+Erbrachte Leistung am: 21.07.2025
+Zahlbar bis: 22.08.2025
+Leistungsbeschreibung:
+Webentwicklung – Paket H
+Zwischensumme (netto): EUR 1350.00
+USt-Betrag: EUR 270.00
+USt-Identifikationsnummer: ATU10086415
+Steuersatz: MwSt 20n%
+Gesamtbetrag (brutto): EUR 1620.00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: PayPal
+IBAN: AT61190430023457307
+BIC: BKAUATWW

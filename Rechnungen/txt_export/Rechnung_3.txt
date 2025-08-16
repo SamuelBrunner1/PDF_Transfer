@@ -1,0 +1,23 @@
+Rechnung
+Ingenieurbüro Schwarz
+Bahnhofstraße 3, 4020 Linz
+peter.schwarz@ibschwarz.at
+Herr Ing. Peter Schwarz
+ReNr: 455-08/25
+Rechnungsdatum: 05.08.2025
+Kundencode: C-77291
+Referenz: ORD20250805
+Zeitraum der Leistung: Juli 2025
+Bitte begleichen bis: 20.08.2025
+Leistungsbeschreibung:
+CAD-Zeichnungsdienstleistung
+Zwischensumme (netto): EUR 2.000,00
+USt-Betrag: EUR 400,00
+USt-Identifikationsnummer: ATU56781234
+Steuersatz: 20 %
+Gesamtbetrag (brutto): EUR 2.400,00
+Währung: €
+Zahlungsinformationen:
+Zahlungsart: SEPA-Überweisung
+IBAN: AT981904300234570000
+BIC: BKAUATWWXXX

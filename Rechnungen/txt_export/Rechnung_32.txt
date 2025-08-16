@@ -1,0 +1,23 @@
+Rechnung / Invoice
+GlobalSys AG
+Zweigstelle Nord – 10001 Berlin
+office@firma22.de
+Herrn Schulz, z.Hd. Leitung
+Unsere Ref.: #INV/2026/D2
+Dokument vom: 03.08.2025
+Account ID: A-9001
+Interne Referenz: P/O 1001-B
+Zeitpunkt Leistung: 28.07.2025
+Bitte Ausgleich bis zum 19.08.2025
+Beschreibung der gelieferten Leistungen:
+Technik-Check lt. Vertrag
+Summe netto: 1075.00 EUR
+Steuerbetrag: 215.00 EUR
+USt-IdNr: UID-Nr.: DE500012345
+Steuersatz: gesetzl. USt 20 %
+Gesamtsumme brutto: 1290.00 EUR
+Währung: €
+Zahlweise:
+Banktransfer
+IBAN: DE50000100000000000000
+BIC: COBADEFF

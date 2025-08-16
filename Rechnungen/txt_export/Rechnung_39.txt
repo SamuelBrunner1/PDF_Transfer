@@ -1,0 +1,23 @@
+Rechnung / Invoice
+NextStep Solutions
+Zentrale – 10008 Berlin
+service@firma29.de
+Frau Meier, Geschäftsstelle
+Unsere Ref.: #INV/2033/D9
+Dokument vom: 10.08.2025
+Account ID: A-9008
+Interne Referenz: P/O 1008-B
+Zeitpunkt Leistung: 21.07.2025
+Bitte Ausgleich bis zum 26.08.2025
+Beschreibung der gelieferten Leistungen:
+Analysephase lt. Vertrag
+Summe netto: 1600.00 EUR
+Steuerbetrag: 320.00 EUR
+USt-IdNr: UID-Nr.: DE500098760
+Steuersatz: gesetzl. USt 20 %
+Gesamtsumme brutto: 1920.00 EUR
+Währung: €
+Zahlweise:
+Abbuchung
+IBAN: DE50000800000000000000
+BIC: BYLADEM1001

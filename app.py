@@ -2,60 +2,130 @@ import streamlit as st
 import pandas as pd
 import io
 import re
+import spacy
+import datetime
 
 from pdf_reader import extract_text_from_pdf
 from ocr_reader import ocr_from_pdf
 from patterns import FIELD_PATTERNS
-from nlp_extractor import extract_named_entities  # Falls du NLP nutzt
 
-# CSS laden
-with open("style.css") as f:
-    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+# Optional: Validierung
+try:
+    from validation import validate_fields
+except Exception:
+    validate_fields = None
 
-st.title("📄 PDF-Rechnungsanalysator (Dark Mode)")
+# --- NER-Modell laden ---
+try:
+    nlp = spacy.load("ner_model")  # relativer Pfad zu deinem trainierten Modell
+except Exception:
+    nlp = None
+    st.error("❌ Konnte das NER-Modell nicht laden. Bitte stelle sicher, dass der Ordner 'ner_model' existiert.")
 
-# Session-State
+# CSS laden (optional)
+try:
+    with open("style.css", "r", encoding="utf-8") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+except FileNotFoundError:
+    pass
+
+st.title("📄 PDF-Rechnungsanalysator")
+
+# Session-State initialisieren
 if "data" not in st.session_state:
     st.session_state["data"] = []
-if "custom_fields" not in st.session_state:
-    st.session_state["custom_fields"] = []
 
-# --- Auswahl der Standard-Felder ---
-st.header("🔍 Wähle Felder zur Extraktion")
+# ---------------------- Utils: Normalisierung & Mapping ----------------------
+
+def normalize_amount(s: str) -> str:
+    """ 'EUR 2.160,00' -> '2160.00' (String, gut für Excel/Weiterverarbeitung) """
+    if not s:
+        return s
+    s = s.strip()
+    s = s.replace("€", "").replace("EUR", "").replace("eur", "")
+    s = s.replace("\u00A0", " ")  # NBSP
+    # Tausendertrennzeichen/Leerzeichen raus
+    s = s.replace(" ", "")
+    # Wenn Punkt als Tausendertrennzeichen und Komma als Dezimaltrenner vorkommt:
+    # Entferne Punkte, ersetze Komma durch Punkt
+    # (funktioniert auch für '2.160,00' -> '2160.00')
+    s = s.replace(".", "").replace(",", ".")
+    m = re.search(r"[+-]?\d+(?:\.\d+)?", s)
+    return m.group(0) if m else s
+
+def normalize_date(s: str) -> str:
+    """ Versucht gängige deutsche Formate auf ISO (YYYY-MM-DD) zu bringen """
+    if not s:
+        return s
+    s = s.strip().replace("\u00A0", " ")
+    candidates = [
+        "%d.%m.%Y", "%d.%m.%y",
+        "%Y-%m-%d", "%Y.%m.%d",
+    ]
+    for fmt in candidates:
+        try:
+            return datetime.datetime.strptime(s, fmt).date().isoformat()
+        except ValueError:
+            continue
+    # reiner Tag ohne 'am:' etc.?
+    m = re.search(r"\b(\d{1,2}\.\d{1,2}\.\d{2,4})\b", s)
+    if m:
+        return normalize_date(m.group(1))
+    return s
+
+# Mapping: NER-Label -> Feldname in deiner UI/Excel
+# Passen ggf. an deine exakten Spaltenbezeichnungen an!
+NER_TO_FIELD = {
+    "RECHNUNGSNUMMER": "Rechnungsnummer",
+    "RECHNUNGSDATUM": "Datum",
+    "LEISTUNGSDATUM": "Leistungsdatum",
+    "ZAHLUNGSZIEL": "Zahlungsziel",
+    "LEISTUNG": "Leistung",
+    "ZWISCHENSUMME_NETTO": "Zwischensumme",
+    "UST_BETRAG": "USt_Betrag",      # Falls dein Feld "UST_BETRAG" heißt
+    "UST_ID": "UID",                  # In deiner Excel-Spalte evtl. "UID" / "USt-ID"
+    "STEUERSATZ": "Steuersatz",
+    "BRUTTOBETRAG": "Betrag (€)",     # Deine Excel-Spalte heißt so
+    "WÄHRUNG": "Währung",
+    "IBAN": "IBAN",
+    "BIC": "BIC",
+    "FIRMENNAME": "Firmenname",
+    "ADRESSE": "Adresse",
+    "EMAIL": "E-Mail",                # Falls deine Spalte "E-Mail" heißt
+    "RECHNUNGSEMPFÄNGER": "Rechnungsempfänger",
+    "KUNDENNUMMER": "Kundennummer",
+    "BESTELLNUMMER": "Bestellnummer",
+    # weitere Labels ggf. hier ergänzen
+}
+
+# Welche Felder sind "Beträge" bzw. "Daten" für Normalisierung?
+AMOUNT_FIELDS = {"Betrag (€)", "Zwischensumme", "USt_Betrag"}
+DATE_FIELDS   = {"Datum", "Leistungsdatum", "Zahlungsziel"}
+
+# ---------------------- UI: Felder auswählen ----------------------
+
+st.header("🔍 Felder auswählen")
 selected_fields = st.multiselect(
-    "Standard-Felder auswählen:",
+    "Wähle die Felder aus, die du extrahieren möchtest:",
     options=list(FIELD_PATTERNS.keys()),
     default=["Rechnungsnummer", "Datum", "Betrag (€)"]
 )
 
-# --- Eigene Felder ---
-st.header("➕ Eigene Felder hinzufügen")
-with st.form("custom_field_form"):
-    field_name = st.text_input("Feldname (z. B. Verwendungszweck)")
-    submitted = st.form_submit_button("Feld hinzufügen")
-    if submitted and field_name:
-        if field_name in FIELD_PATTERNS:
-            if field_name not in st.session_state["custom_fields"]:
-                st.session_state["custom_fields"].append(field_name)
-            st.success(f"Feld '{field_name}' hinzugefügt!")
-        else:
-            st.error("Unbekannter Feldname. Bitte wähle aus den unterstützten Feldern.")
-
-# --- Aktive Extraktionsfelder ---
-if selected_fields or st.session_state["custom_fields"]:
+# Aktive Felder anzeigen
+if selected_fields:
     st.subheader("✅ Aktive Extraktionsfelder")
-    for field in selected_fields + st.session_state["custom_fields"]:
-        pattern = FIELD_PATTERNS.get(field, "-/-")
-        st.write(f"✔ {field} → `{pattern}`")
+    for field in selected_fields:
+        st.markdown(f"✔ **{field}**")
 
-# --- PDF-Upload ---
-st.header("📂 PDF-Dateien hochladen und analysieren")
+# ---------------------- Upload & Analyse ----------------------
+
+st.header("📂 PDF-Dateien hochladen")
 pdf_files = st.file_uploader(
-    "Lade eine oder mehrere PDFs hoch", type="pdf", accept_multiple_files=True
+    "Wähle PDF-Dateien aus", type="pdf", accept_multiple_files=True
 )
 
 if pdf_files and st.button("Analyse starten"):
-    st.session_state["data"] = []  # ✅ Session-Daten zurücksetzen
+    st.session_state["data"] = []
 
     for pdf_file in pdf_files:
         pdf_bytes = pdf_file.read()
@@ -65,31 +135,77 @@ if pdf_files and st.button("Analyse starten"):
             st.warning(f"OCR wird verwendet für {pdf_file.name}...")
             text = ocr_from_pdf(io.BytesIO(pdf_bytes))
 
-        st.subheader(f"📑 {pdf_file.name}")
+        st.subheader(f"📃 {pdf_file.name}")
         st.text(text)
 
-        # --- Parsing ---
+        # --------- NER-Analyse & Mapping ----------
+        ner_values = {}  # export_feld -> wert
+        if nlp:
+            doc = nlp(text)
+
+            # 1) Anzeige (wie gehabt)
+            ents = [(ent.label_, ent.text) for ent in doc.ents]
+            if ents:
+                st.markdown("### 🧠 KI-Erkannte Entitäten")
+                for label, value in ents:
+                    st.write(f"**{label}**: {value}")
+
+            # 2) Mapping auf Export-Felder (erstes Vorkommen gewinnt)
+            for ent in doc.ents:
+                fld = NER_TO_FIELD.get(ent.label_)
+                if not fld:
+                    continue
+                if fld in ner_values:
+                    continue  # erstes Vorkommen behalten
+                val = ent.text.strip()
+                if fld in AMOUNT_FIELDS:
+                    val = normalize_amount(val)
+                elif fld in DATE_FIELDS:
+                    val = normalize_date(val)
+                ner_values[fld] = val
+
+        # --------- Zusammenführen: NER priorisiert, Regex als Fallback ----------
         parsed_data = {}
-        for field in selected_fields + st.session_state["custom_fields"]:
+        for field in selected_fields:
+            # 1) NER hat Vorrang
+            if field in ner_values and ner_values[field]:
+                parsed_data[field] = ner_values[field]
+                continue
+
+            # 2) Regex-Fallback
             pattern = FIELD_PATTERNS.get(field)
             if pattern:
                 match = re.search(pattern, text)
-                parsed_data[field] = match.group(1) if match else "Nicht gefunden"
+                val = match.group(1) if match else "Nicht gefunden"
+                if field in AMOUNT_FIELDS and val != "Nicht gefunden":
+                    val = normalize_amount(val)
+                elif field in DATE_FIELDS and val != "Nicht gefunden":
+                    val = normalize_date(val)
+                parsed_data[field] = val
             else:
                 parsed_data[field] = "Nicht definiert"
 
-        # ✅ Nur speichern, wenn sinnvolle Daten vorhanden sind
+        # --- Validierung (wenn vorhanden)
+        if validate_fields:
+            issues = validate_fields(parsed_data)
+            if issues:
+                st.warning("⚠ Mögliche Probleme erkannt:")
+                for k, msg in issues.items():
+                    st.text(f"{k}: {msg}")
+
         if any(val != "Nicht gefunden" for val in parsed_data.values()):
             st.session_state["data"].append(parsed_data)
-            st.success(f"Erfolgreich extrahiert aus: {pdf_file.name}")
+            st.success(f"✅ Erfolgreich extrahiert aus: {pdf_file.name}")
         else:
-            st.warning(f"Keine passenden Daten in {pdf_file.name} gefunden.")
+            st.warning(f"❌ Keine passenden Daten in {pdf_file.name} gefunden.")
 
+        # Debug-Ausgabe JSON (hilfreich zum Abgleich)
         st.json(parsed_data)
 
-# --- Excel-Download ---
+# ---------------------- Excel-Download ----------------------
+
 if st.session_state["data"]:
-    st.header("📥 Ergebnisse als Excel-Datei")
+    st.header("📊 Ergebnisse als Excel-Datei")
     df = pd.DataFrame(st.session_state["data"])
     st.dataframe(df)
 

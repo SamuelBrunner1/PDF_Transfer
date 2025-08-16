@@ -1,0 +1,23 @@
+Rechnung / Invoice
+NextStep Solutions
+Postfach 33 – 10000 Berlin
+info@firma21.de
+Fa. Meier, Abt. Einkauf
+Unsere Ref.: #INV/2025/D1
+Dokument vom: 02.08.2025
+Account ID: A-9000
+Interne Referenz: P/O 1000-B
+Zeitpunkt Leistung: 29.07.2025
+Bitte Ausgleich bis zum 18.08.2025
+Beschreibung der gelieferten Leistungen:
+Analysephase lt. Vertrag
+Summe netto: 1000.00 EUR
+Steuerbetrag: 200.00 EUR
+USt-IdNr: UID-Nr.: DE500000000
+Steuersatz: gesetzl. USt 20 %
+Gesamtsumme brutto: 1200.00 EUR
+Währung: €
+Zahlweise:
+Zahlung via PayPal
+IBAN: DE50000000000000000000
+BIC: DEUTDEFF

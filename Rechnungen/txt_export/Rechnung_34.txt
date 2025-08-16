@@ -1,0 +1,23 @@
+Rechnung / Invoice
+Innovent Systems
+Postfach 33 – 10003 Berlin
+info@firma24.de
+Fa. Krüger, Abt. Einkauf
+Unsere Ref.: #INV/2028/D4
+Dokument vom: 05.08.2025
+Account ID: A-9003
+Interne Referenz: P/O 1003-B
+Zeitpunkt Leistung: 26.07.2025
+Bitte Ausgleich bis zum 21.08.2025
+Beschreibung der gelieferten Leistungen:
+Monitoring-Einrichtung lt. Vertrag
+Summe netto: 1225.00 EUR
+Steuerbetrag: 245.00 EUR
+USt-IdNr: UID-Nr.: DE500037035
+Steuersatz: gesetzl. USt 20 %
+Gesamtsumme brutto: 1470.00 EUR
+Währung: €
+Zahlweise:
+Zahlung via PayPal
+IBAN: DE50000300000000000000
+BIC: DEUTDEFF

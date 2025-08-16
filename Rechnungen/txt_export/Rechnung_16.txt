@@ -1,0 +1,23 @@
+Rechnung
+Graf Architektur GmbH
+Planstraße 4, 6020 Innsbruck
+n.graf@grafarchitektur.at
+Frau Nina Graf
+Rechnungskennung: 78-WK-25
+Erstellt am: 03.08.2025
+KDNR: 78412025
+Projektcode: PL-INNS-25
+Leistungszeitraum: 01.07. – 31.07.2025
+Bezahlen bis: 20.08.2025 ohne Abzug
+Leistungsbeschreibung:
+Planung Wohnbauprojekt (Phase 1)
+Zwischensumme (netto): EUR 6.000,00
+USt-Betrag: EUR 1.200,00
+USt-Identifikationsnummer: ATU22114433
+Steuersatz: Steuersatz: 20%
+Gesamtbetrag (brutto): EUR 7.200,00
+Währung: €
+Zahlungsinformationen:
+Zahlungsart: Lastschrift
+IBAN: AT761234123412345678
+BIC: RZTIAT22263

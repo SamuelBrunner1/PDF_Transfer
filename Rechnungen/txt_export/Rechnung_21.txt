@@ -1,0 +1,23 @@
+Rechnung
+GreenLogics GmbH
+Marktplatz 12, 1002 Wien
+kontakt@firma3.at
+Herr Felix Fischer
+Rech.-ID: R-2027-XYZ-03
+Ausgestellt am: 03.08.2025
+Kd-Nr: CUST-1002
+Auftragsnummer: ORD-2002
+Erbrachte Leistung am: 26.07.2025
+Zahlbar bis: 17.08.2025
+Leistungsbeschreibung:
+Cloud-Beratung – Paket C
+Zwischensumme (netto): EUR 1100.00
+USt-Betrag: EUR 220.00
+USt-Identifikationsnummer: ATU10024690
+Steuersatz: MwSt 20n%
+Gesamtbetrag (brutto): EUR 1320.00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: Lastschrift
+IBAN: AT61190430023457302
+BIC: BKAUATWW

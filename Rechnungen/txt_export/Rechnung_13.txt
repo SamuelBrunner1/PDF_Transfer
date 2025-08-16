@@ -1,0 +1,23 @@
+Rechnung
+Hofer Holzbau GmbH
+Zimmererstraße 3, 4400 Steyr
+kontakt@hoferholzbau.at
+Herr Martin Hofer
+RE-NR 12345678
+Datum der Erstellung: 01.08.2025
+Kunden-Code: C1122X
+Interne Nummer: 2025-HB12
+Ausführung: 15.07.2025
+Fälligkeitstag: 18.08.2025
+Leistungsbeschreibung:
+Bau eines Carports
+Zwischensumme (netto): EUR 5.500,00
+USt-Betrag: EUR 1.100,00
+USt-Identifikationsnummer: ATU55667788
+Steuersatz: MwSt: 20 %
+Gesamtbetrag (brutto): EUR 6.600,00
+Währung: €
+Zahlungsinformationen:
+Zahlungsart: Bankeinzug
+IBAN: AT601234123412341234
+BIC: SPFBAT2BXXX

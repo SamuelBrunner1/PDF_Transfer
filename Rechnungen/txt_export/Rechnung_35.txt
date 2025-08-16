@@ -1,0 +1,23 @@
+Rechnung / Invoice
+NextStep Solutions
+Zweigstelle Nord – 10004 Berlin
+office@firma25.de
+Herrn Meier, z.Hd. Leitung
+Unsere Ref.: #INV/2029/D5
+Dokument vom: 06.08.2025
+Account ID: A-9004
+Interne Referenz: P/O 1004-B
+Zeitpunkt Leistung: 25.07.2025
+Bitte Ausgleich bis zum 22.08.2025
+Beschreibung der gelieferten Leistungen:
+Analysephase lt. Vertrag
+Summe netto: 1300.00 EUR
+Steuerbetrag: 260.00 EUR
+USt-IdNr: UID-Nr.: DE500049380
+Steuersatz: gesetzl. USt 20 %
+Gesamtsumme brutto: 1560.00 EUR
+Währung: €
+Zahlweise:
+Banktransfer
+IBAN: DE50000400000000000000
+BIC: COBADEFF

@@ -1,0 +1,23 @@
+Rechnung
+Praxis Maier
+Doktor-Karl-Straße 10, 8010 Graz
+s.maier@praxismaier.at
+Frau Dr. Sandra Maier
+Rechnungsnummer: X-3030-25
+Rechnung erstellt am: 04.08.2025
+Konto-Nr.: 774499
+Belegnummer: 8851-GZ
+Dienst am: 30.07.2025
+Fällig bis: 18.08.2025
+Leistungsbeschreibung:
+Gesundheitsberatung online
+Zwischensumme (netto): EUR 300,00
+USt-Betrag: EUR 60,00
+USt-Identifikationsnummer: ATU44556677
+Steuersatz: MwSt: 20%
+Gesamtbetrag (brutto): EUR 360,00
+Währung: €
+Zahlungsinformationen:
+Zahlungsart: Online-Zahlung
+IBAN: AT021000000000000123
+BIC: OPSYATWW

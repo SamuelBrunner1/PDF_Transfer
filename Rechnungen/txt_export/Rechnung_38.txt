@@ -1,0 +1,23 @@
+Rechnung / Invoice
+Innovent Systems
+Zweigstelle Nord – 10007 Berlin
+office@firma28.de
+Herrn Krüger, z.Hd. Leitung
+Unsere Ref.: #INV/2032/D8
+Dokument vom: 09.08.2025
+Account ID: A-9007
+Interne Referenz: P/O 1007-B
+Zeitpunkt Leistung: 22.07.2025
+Bitte Ausgleich bis zum 25.08.2025
+Beschreibung der gelieferten Leistungen:
+Monitoring-Einrichtung lt. Vertrag
+Summe netto: 1525.00 EUR
+Steuerbetrag: 305.00 EUR
+USt-IdNr: UID-Nr.: DE500086415
+Steuersatz: gesetzl. USt 20 %
+Gesamtsumme brutto: 1830.00 EUR
+Währung: €
+Zahlweise:
+Banktransfer
+IBAN: DE50000700000000000000
+BIC: COBADEFF

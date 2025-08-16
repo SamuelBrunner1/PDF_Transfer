@@ -1,0 +1,23 @@
+Rechnung
+Mayer & Partner Steuerberatung
+Steuerweg 1, 4020 Linz
+c.mayer@steuerpartner.at
+Herr Christian Mayer
+ReNr 775001
+Rechnung vom: 07.08.2025
+Referenz: K-1100200
+Mandatsnummer: M-20-25
+Abrechnungszeitraum: Juli 2025
+Bezahlen Sie bitte bis spätestens: 25.08.2025
+Leistungsbeschreibung:
+Finanzbuchhaltung inkl. Jahresabschluss
+Zwischensumme (netto): EUR 2.500,00
+USt-Betrag: EUR 500,00
+USt-Identifikationsnummer: ATU66778899
+Steuersatz: 20 % Umsatzsteuer
+Gesamtbetrag (brutto): EUR 3.000,00
+Währung: €
+Zahlungsinformationen:
+Zahlungsart: Überweisung auf Geschäftskonto
+IBAN: AT441234000011112222
+BIC: EASYATW1

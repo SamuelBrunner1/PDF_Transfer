@@ -1,0 +1,23 @@
+Rechnung / Invoice
+GlobalSys AG
+Postfach 33 – 10009 Berlin
+info@firma30.de
+Fa. Schulz, Abt. Einkauf
+Unsere Ref.: #INV/2034/D10
+Dokument vom: 11.08.2025
+Account ID: A-9009
+Interne Referenz: P/O 1009-B
+Zeitpunkt Leistung: 20.07.2025
+Bitte Ausgleich bis zum 27.08.2025
+Beschreibung der gelieferten Leistungen:
+Technik-Check lt. Vertrag
+Summe netto: 1675.00 EUR
+Steuerbetrag: 335.00 EUR
+USt-IdNr: UID-Nr.: DE500111105
+Steuersatz: gesetzl. USt 20 %
+Gesamtsumme brutto: 2010.00 EUR
+Währung: €
+Zahlweise:
+Zahlung via PayPal
+IBAN: DE50000900000000000000
+BIC: DEUTDEFF

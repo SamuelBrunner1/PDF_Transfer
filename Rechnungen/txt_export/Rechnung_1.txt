@@ -1,0 +1,23 @@
+Rechnung
+Musterfirma GmbH
+Musterstraße 12, 1010 Wien
+max@mustermann.at
+Herr Max Mustermann
+Re-Nr. 20250807-001
+Ausgestellt am: 07.08.2025
+Kunden-ID: K3928401
+Bestell-Nr: B-22119
+Leistungszeitraum: Juli 2025
+Zahlbar bis: 21.08.2025
+Leistungsbeschreibung:
+Technische Beratung und Support
+Zwischensumme (netto): EUR 1.200,00
+USt-Betrag: EUR 240,00
+USt-Identifikationsnummer: ATU12345678
+Steuersatz: MwSt 20n%
+Gesamtbetrag (brutto): EUR 1.440,00
+Währung: €
+Zahlungsinformationen:
+Zahlungsart: Überweisung
+IBAN: AT611904300234573201
+BIC: BKAUATWW

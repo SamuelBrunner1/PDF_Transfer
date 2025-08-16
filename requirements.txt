@@ -5,3 +5,5 @@ pymupdf
 pandas
 openpyxl
 pillow
+spacy
+de_core_news_md

@@ -1,0 +1,23 @@
+Rechnung
+Huber Consulting
+Lilienweg 7, 4020 Linz
+kontakt@huberconsult.at
+Frau Lisa Huber
+Rechnung Nr.: 9854-2025
+Datum der Rechnung: 01.08.2025
+Kundennummer: K100200
+Ihre Bestellnummer: 2025-887-A
+Leistungsdatum: 29.07.2025
+Zahlbar innerhalb von 14 Tagen
+Leistungsbeschreibung:
+Strategieberatung (pauschal)
+Zwischensumme (netto): EUR 800,00
+USt-Betrag: EUR 160,00
+USt-Identifikationsnummer: ATU99887766
+Steuersatz: 20 Prozent
+Gesamtbetrag (brutto): EUR 960,00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: Banküberweisung
+IBAN: AT730000000012345678
+BIC: RLNWATWWXXX

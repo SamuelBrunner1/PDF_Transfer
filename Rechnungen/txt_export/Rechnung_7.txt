@@ -1,0 +1,23 @@
+Rechnung
+MK Übersetzungen
+Schillerstraße 6, 4020 Linz
+kern@mkuebersetzungen.at
+Frau Michaela Kern
+Rechnung Nr. 77072025
+Ausstellungstag: 07.08.2025
+Kundenreferenz: 882-01
+Bestellcode: MK-2025-07
+Abgerechnet für: Juli 2025
+Späteste Zahlung: 20.08.2025
+Leistungsbeschreibung:
+Fachübersetzung Technik
+Zwischensumme (netto): EUR 950,00
+USt-Betrag: EUR 190,00
+USt-Identifikationsnummer: ATU11223344
+Steuersatz: USt: 20%
+Gesamtbetrag (brutto): EUR 1.140,00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: PayPal
+IBAN: AT551234567890000001
+BIC: GIBAATWWXXX

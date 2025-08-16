@@ -1,0 +1,23 @@
+Rechnung / Invoice
+LogXpress GmbH
+Postfach 33 – 10006 Berlin
+info@firma27.de
+Fa. Nowak, Abt. Einkauf
+Unsere Ref.: #INV/2031/D7
+Dokument vom: 08.08.2025
+Account ID: A-9006
+Interne Referenz: P/O 1006-B
+Zeitpunkt Leistung: 23.07.2025
+Bitte Ausgleich bis zum 24.08.2025
+Beschreibung der gelieferten Leistungen:
+Initialaudit lt. Vertrag
+Summe netto: 1450.00 EUR
+Steuerbetrag: 290.00 EUR
+USt-IdNr: UID-Nr.: DE500074070
+Steuersatz: gesetzl. USt 20 %
+Gesamtsumme brutto: 1740.00 EUR
+Währung: €
+Zahlweise:
+Zahlung via PayPal
+IBAN: DE50000600000000000000
+BIC: DEUTDEFF

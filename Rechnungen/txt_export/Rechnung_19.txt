@@ -1,0 +1,23 @@
+Rechnung
+AlphaTech GmbH
+Hauptstraße 10, 1000 Wien
+kontakt@firma1.at
+Herr Jan Berger
+Rech.-ID: R-2025-XYZ-01
+Ausgestellt am: 01.08.2025
+Kd-Nr: CUST-1000
+Auftragsnummer: ORD-2000
+Erbrachte Leistung am: 28.07.2025
+Zahlbar bis: 15.08.2025
+Leistungsbeschreibung:
+IT-Wartung – Paket A
+Zwischensumme (netto): EUR 1000.00
+USt-Betrag: EUR 200.00
+USt-Identifikationsnummer: ATU10000000
+Steuersatz: MwSt 20n%
+Gesamtbetrag (brutto): EUR 1200.00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: Überweisung
+IBAN: AT61190430023457300
+BIC: BKAUATWW

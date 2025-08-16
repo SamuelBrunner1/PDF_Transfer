@@ -1,0 +1,23 @@
+Rechnung
+GreenLogics GmbH
+Marktplatz 18, 1008 Wien
+kontakt@firma9.at
+Herr Felix Fischer
+Rech.-ID: R-2033-XYZ-09
+Ausgestellt am: 09.08.2025
+Kd-Nr: CUST-1008
+Auftragsnummer: ORD-2008
+Erbrachte Leistung am: 20.07.2025
+Zahlbar bis: 23.08.2025
+Leistungsbeschreibung:
+Cloud-Beratung – Paket I
+Zwischensumme (netto): EUR 1400.00
+USt-Betrag: EUR 280.00
+USt-Identifikationsnummer: ATU10098760
+Steuersatz: MwSt 20n%
+Gesamtbetrag (brutto): EUR 1680.00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: Überweisung
+IBAN: AT61190430023457308
+BIC: BKAUATWW

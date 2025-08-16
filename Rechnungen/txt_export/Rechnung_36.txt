@@ -1,0 +1,23 @@
+Rechnung / Invoice
+GlobalSys AG
+Zentrale – 10005 Berlin
+service@firma26.de
+Frau Schulz, Geschäftsstelle
+Unsere Ref.: #INV/2030/D6
+Dokument vom: 07.08.2025
+Account ID: A-9005
+Interne Referenz: P/O 1005-B
+Zeitpunkt Leistung: 24.07.2025
+Bitte Ausgleich bis zum 23.08.2025
+Beschreibung der gelieferten Leistungen:
+Technik-Check lt. Vertrag
+Summe netto: 1375.00 EUR
+Steuerbetrag: 275.00 EUR
+USt-IdNr: UID-Nr.: DE500061725
+Steuersatz: gesetzl. USt 20 %
+Gesamtsumme brutto: 1650.00 EUR
+Währung: €
+Zahlweise:
+Abbuchung
+IBAN: DE50000500000000000000
+BIC: BYLADEM1001

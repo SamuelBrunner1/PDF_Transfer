@@ -1,0 +1,23 @@
+Rechnung
+Hofer E-Commerce Solutions
+Digitalstraße 18, 4020 Linz
+support@hoferecom.at
+Herr Daniel Hofer
+RE-NR: ECOM-44552025
+Rechnungsdatum: 05.08.2025
+Kunden-ID: E4455
+Web-Bestellung: #WEBCART-2055
+Erfüllung: 04.08.2025
+Bitte begleichen bis: 19.08.2025
+Leistungsbeschreibung:
+Shop-Optimierung & UX-Testing
+Zwischensumme (netto): EUR 950,00
+USt-Betrag: EUR 190,00
+USt-Identifikationsnummer: ATU55443322
+Steuersatz: 20 % USt
+Gesamtbetrag (brutto): EUR 1.140,00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: PayPal
+IBAN: AT121234345654321123
+BIC: BKAUATWW

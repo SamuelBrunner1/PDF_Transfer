@@ -1,0 +1,23 @@
+Rechnung
+InnovaWare GmbH
+Bergstraße 21, 1011 Wien
+kontakt@firma12.at
+Herr Oliver Bauer
+Rech.-ID: R-2036-XYZ-12
+Ausgestellt am: 12.08.2025
+Kd-Nr: CUST-1011
+Auftragsnummer: ORD-2011
+Erbrachte Leistung am: 17.07.2025
+Zahlbar bis: 26.08.2025
+Leistungsbeschreibung:
+ERP-Schulung – Paket L
+Zwischensumme (netto): EUR 1550.00
+USt-Betrag: EUR 310.00
+USt-Identifikationsnummer: ATU10135795
+Steuersatz: MwSt 20n%
+Gesamtbetrag (brutto): EUR 1860.00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: PayPal
+IBAN: AT61190430023457311
+BIC: BKAUATWW

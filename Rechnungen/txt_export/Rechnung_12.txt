@@ -1,0 +1,23 @@
+Rechnung
+Sommer Events e.U.
+Hauptplatz 8, 8010 Graz
+office@sommer-events.at
+Frau Julia Sommer
+Rechnung: B-77882025
+Erstellt: 02.08.2025
+Konto: 900-AB-77
+Buchungsnummer: S-0801
+Veranstaltungsdatum: 31.07.2025
+Fälligkeit: 10.08.2025
+Leistungsbeschreibung:
+Eventorganisation Sommerfest
+Zwischensumme (netto): EUR 4.000,00
+USt-Betrag: EUR 800,00
+USt-Identifikationsnummer: ATU11224466
+Steuersatz: Steuer: 20%
+Gesamtbetrag (brutto): EUR 4.800,00
+Währung: EUR
+Zahlungsinformationen:
+Zahlungsart: Barzahlung bei Lieferung
+IBAN: AT111122223333444455
+BIC: RVSAAT2SXXX
