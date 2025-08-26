@@ -1,0 +1,15 @@
+Unique Corp 2 GmbH
+Adresse: Rightstr. 45, 50667 Köln
+Invoice ID: Uni-2025002
+Date: 05.08.2025
+Leistung: Lieferung von Waren und Dienstleistungen gemäß Bestellung.
+Summe netto 974,02
+USt-Betrag 194,80
+Steuersatz 20 Prozent
+Gesamtbetrag (brutto) CHF 1.168,82
+Währung CHF
+Fällig bis Bitte begleichen bis 30 Tage
+Zahlungsart Kreditkarte
+IBAN CH93 0076 2011 6238 5295 7
+BIC GENODEF1N02
+USt-IdNr. ATU99887766

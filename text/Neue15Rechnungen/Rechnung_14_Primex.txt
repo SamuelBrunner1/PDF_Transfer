@@ -1,0 +1,21 @@
+Primex Solutions
+Adresse: Dr.-Karl-Lueger-Straße 5 – 1010 Wien
+E-Mail: office@example.com
+Rechnungsempfänger: Firma XY Kunde13, Kundenstraße 13, 1010 Wien
+Rech.-ID: INV-2025013
+Dokument vom: 14.07.2025
+Kunden-ID: KD-5013
+Ihre Bestellnummer: PO-1013
+Leistungszeitraum: 01.07.2025 – 31.07.2025
+Bitte begleichen bis: binnen 14 Tagen
+Erbrachte Leistung:
+IT-Dienstleistungen, Systemwartung und Support laut Vertrag.
+Zwischensumme (netto): 445,98
+USt-Betrag: 89,20
+Steuersatz: 20%
+Gesamtbetrag (brutto): EUR 535,18
+Währung: EUR
+Zahlungsart: Rechnung
+IBAN: DE44 1002 0500 0001 2345 67
+BIC: GENODEF1N02
+USt-IdNr.: ATU12345678

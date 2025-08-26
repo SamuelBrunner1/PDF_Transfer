@@ -1,0 +1,21 @@
+LogicBase KG
+Adresse: Dr.-Karl-Lueger-Straße 5 – 1010 Wien
+E-Mail: office@example.com
+Rechnungsempfänger: Firma XY Kunde12, Kundenstraße 12, 1010 Wien
+Rech.-ID: INV-2025012
+Dokument vom: 17.07.2025
+Kunden-ID: KD-5012
+Ihre Bestellnummer: PO-1012
+Leistungszeitraum: 01.07.2025 – 31.07.2025
+Bitte begleichen bis: binnen 14 Tagen
+Erbrachte Leistung:
+IT-Dienstleistungen, Systemwartung und Support laut Vertrag.
+Zwischensumme (netto): 2.817,72
+USt-Betrag: 563,55
+Steuersatz: 20%
+Gesamtbetrag (brutto): EUR 3.381,27
+Währung: EUR
+Zahlungsart: Kreditkarte
+IBAN: DE23100000001234567890
+BIC: UBSWCHZH80A
+USt-IdNr.: ATU12345678

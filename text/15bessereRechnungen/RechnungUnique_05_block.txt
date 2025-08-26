@@ -1,0 +1,16 @@
+Unique Corp 4 GmbH
+Blockstraße 33, 70173 Stuttgart
+Rech.-Nr.: Uni-2025004 | Kunden-ID: Kunden-ID 8004
+Datum: 18.07.2025 | Bestellnummer: Interne Ref. 4004
+Empfänger: Kunde4 AG, – Geschäftsstelle Mitte, Postfach 64, 60313 Frankfurt
+Leistung: Lieferung von Waren und Dienstleistungen gemäß Bestellung.
+Summe netto 1.490,79
+USt-Betrag 298,16
+Steuersatz 20 %
+Gesamtbetrag (brutto) EUR 1.788,95
+Währung EUR
+Fällig bis Bitte begleichen bis 30 Tage
+Zahlungsart Barzahlung
+IBAN DE23100000001234567890
+BIC HYVEDEMM
+USt-IdNr. ATU99887766

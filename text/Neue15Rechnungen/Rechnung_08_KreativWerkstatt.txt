@@ -1,0 +1,21 @@
+KreativWerkstatt GmbH
+Adresse: Dr.-Karl-Lueger-Straße 5 – 1010 Wien
+E-Mail: office@example.com
+Rechnungsempfänger: Firma XY Kunde7, Kundenstraße 7, 1010 Wien
+Rech.-ID: INV-2025007
+Dokument vom: 01.08.2025
+Kunden-ID: KD-5007
+Ihre Bestellnummer: PO-1007
+Leistungszeitraum: 01.07.2025 – 31.07.2025
+Bitte begleichen bis: binnen 14 Tagen
+Erbrachte Leistung:
+IT-Dienstleistungen, Systemwartung und Support laut Vertrag.
+Zwischensumme (netto): 3.469,89
+USt-Betrag: 693,98
+Steuersatz: 20n%
+Gesamtbetrag (brutto): EUR 4.163,87
+Währung: EUR
+Zahlungsart: Bankeinzug
+IBAN: DE23100000001234567890
+BIC: GENODEF1N02
+USt-IdNr.: ATU12345678

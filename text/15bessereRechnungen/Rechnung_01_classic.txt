@@ -1,0 +1,19 @@
+Innovent Systems GmbH
+Zweigstelle: Am Technikpark 7 – 8010 Graz
+Email: info@classic.com
+Invoice No.: Re-2025000
+Invoice Date: 23.08.2025
+Customer: Fa. Testkunde0, Musterstraße 0, Postfach 45 – 4020 Linz
+PO: Web-Bestellung #2000
+Leistungsbeschreibung:
+Diverse Dienstleistungen, Support, Beratung.
+Summe netto 1.492,02
+USt-Betrag 298,40
+Steuersatz 20 %
+Gesamtbetrag (brutto) CHF 1.790,42
+Währung CHF
+Zahlungsziel Zahlbar bis: 14 Tage
+Zahlungsart SEPA-Basislastschrift
+IBAN CH93 0076 2011 6238 5295 7
+BIC HYVEDEMM
+VAT ID DE123456789

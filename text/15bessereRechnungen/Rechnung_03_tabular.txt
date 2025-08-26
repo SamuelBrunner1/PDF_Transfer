@@ -1,0 +1,18 @@
+Alpha Solutions KG - Rechnung
+Unsere Ref. Re-2025002
+Dokument vom 13.08.2025
+Kd-Nr. Account ID 6002
+Belegnummer Web-Bestellung #2002
+Rechnungsempfänger Fa. Testkunde2, Musterstraße 2, Postfach 45 – 4020 Linz
+Leistungsbeschreibung:
+Diverse Dienstleistungen, Support, Beratung.
+Summe netto 3.768,63
+USt-Betrag 753,72
+Steuersatz 20%
+Gesamtbetrag (brutto) CHF 4.522,35
+Währung CHF
+Zahlungsziel Zahlbar bis: 14 Tage
+Zahlungsart PayPal
+IBAN AT61 1904 3002 3457 3201
+BIC BANKDEFFXXX
+VAT ID DE123456789

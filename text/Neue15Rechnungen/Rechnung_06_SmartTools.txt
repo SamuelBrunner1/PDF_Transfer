@@ -1,0 +1,21 @@
+SmartTools e.U.
+Adresse: Dr.-Karl-Lueger-Straße 5 – 1010 Wien
+E-Mail: office@example.com
+Rechnungsempfänger: Firma XY Kunde5, Kundenstraße 5, 1010 Wien
+Rech.-ID: INV-2025005
+Dokument vom: 07.08.2025
+Kunden-ID: KD-5005
+Ihre Bestellnummer: PO-1005
+Leistungszeitraum: 01.07.2025 – 31.07.2025
+Bitte begleichen bis: binnen 14 Tagen
+Erbrachte Leistung:
+IT-Dienstleistungen, Systemwartung und Support laut Vertrag.
+Zwischensumme (netto): 617,70
+USt-Betrag: 123,54
+Steuersatz: 20 Prozent
+Gesamtbetrag (brutto): USD 741,24
+Währung: USD
+Zahlungsart: Rechnung
+IBAN: DE23100000001234567890
+BIC: BANKDEFFXXX
+USt-IdNr.: ATU12345678

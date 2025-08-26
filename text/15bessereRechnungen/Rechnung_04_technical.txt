@@ -1,0 +1,17 @@
+Müller & Partner OHG - Technical Invoice
+Adresse: Dr.-Ing.-Straße 10 – 7000 Eisenstadt
+Mail: tech@service.org
+Rech.-Nr.: Re-2025003 | Kunden-ID: Account ID 6003
+Datum: 08.08.2025 | P/O: Web-Bestellung #2003
+Leistungsbeschreibung:
+Diverse Dienstleistungen, Support, Beratung.
+Summe netto 2.810,62
+USt-Betrag 562,12
+Steuersatz 20 %
+Gesamtbetrag (brutto) EUR 3.372,74
+Währung EUR
+Zahlungsziel Zahlbar bis: 14 Tage
+Zahlungsart Kreditkarte
+IBAN AT611904300234573201
+BIC GENODEF1N02
+VAT ID DE123456789

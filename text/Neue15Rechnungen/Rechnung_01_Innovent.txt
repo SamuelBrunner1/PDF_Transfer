@@ -1,0 +1,21 @@
+Innovent Systems GmbH
+Adresse: Dr.-Karl-Lueger-Straße 5 – 1010 Wien
+E-Mail: office@example.com
+Rechnungsempfänger: Firma XY Kunde0, Kundenstraße 0, 1010 Wien
+Rech.-ID: INV-2025000
+Dokument vom: 22.08.2025
+Kunden-ID: KD-5000
+Ihre Bestellnummer: PO-1000
+Leistungszeitraum: 01.07.2025 – 31.07.2025
+Bitte begleichen bis: binnen 14 Tagen
+Erbrachte Leistung:
+IT-Dienstleistungen, Systemwartung und Support laut Vertrag.
+Zwischensumme (netto): 2.292,57
+USt-Betrag: 458,51
+Steuersatz: 20%
+Gesamtbetrag (brutto): CHF 2.751,08
+Währung: CHF
+Zahlungsart: Kreditkarte
+IBAN: AT611904300234573201
+BIC: BANKDEFFXXX
+USt-IdNr.: ATU12345678

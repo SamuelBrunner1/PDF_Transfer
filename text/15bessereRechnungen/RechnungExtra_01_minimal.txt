@@ -1,0 +1,16 @@
+Firma 0 Solutions GmbH
+Adresse: Hauptstraße 1, 4020 Linz
+Re-Nr.: Doc-2025000
+Rechnung vom: 23.08.2025
+Leistungszeitraum: 01.08.2025 – 31.08.2025
+Erbrachte Leistungen: Beratungs- und Support-Dienstleistungen.
+Subtotal 5.310,30
+UST-Betrag 1.062,06
+Steuersatz 20 Prozent
+Gesamtbetrag (brutto) EUR 6.372,36
+Währung EUR
+Fällig bis binnen 14 Tagen
+Zahlungsart SEPA-Basislastschrift
+IBAN DE44 1002 0500 0001 2345 67
+BIC BANKDEFFXXX
+UID-Nr. ATU87654321

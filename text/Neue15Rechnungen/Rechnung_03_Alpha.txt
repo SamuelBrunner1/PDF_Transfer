@@ -1,0 +1,21 @@
+Alpha Solutions KG
+Adresse: Dr.-Karl-Lueger-Straße 5 – 1010 Wien
+E-Mail: office@example.com
+Rechnungsempfänger: Firma XY Kunde2, Kundenstraße 2, 1010 Wien
+Rech.-ID: INV-2025002
+Dokument vom: 16.08.2025
+Kunden-ID: KD-5002
+Ihre Bestellnummer: PO-1002
+Leistungszeitraum: 01.07.2025 – 31.07.2025
+Bitte begleichen bis: binnen 14 Tagen
+Erbrachte Leistung:
+IT-Dienstleistungen, Systemwartung und Support laut Vertrag.
+Zwischensumme (netto): 2.121,20
+USt-Betrag: 424,24
+Steuersatz: 20 Prozent
+Gesamtbetrag (brutto): EUR 2.545,44
+Währung: EUR
+Zahlungsart: PayPal
+IBAN: CH93 0076 2011 6238 5295 7
+BIC: UBSWCHZH80A
+USt-IdNr.: ATU12345678

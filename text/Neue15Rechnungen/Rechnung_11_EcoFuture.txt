@@ -1,0 +1,21 @@
+EcoFuture GmbH
+Adresse: Dr.-Karl-Lueger-Straße 5 – 1010 Wien
+E-Mail: office@example.com
+Rechnungsempfänger: Firma XY Kunde10, Kundenstraße 10, 1010 Wien
+Rech.-ID: INV-2025010
+Dokument vom: 23.07.2025
+Kunden-ID: KD-5010
+Ihre Bestellnummer: PO-1010
+Leistungszeitraum: 01.07.2025 – 31.07.2025
+Bitte begleichen bis: binnen 14 Tagen
+Erbrachte Leistung:
+IT-Dienstleistungen, Systemwartung und Support laut Vertrag.
+Zwischensumme (netto): 603,55
+USt-Betrag: 120,71
+Steuersatz: 20%
+Gesamtbetrag (brutto): USD 724,26
+Währung: USD
+Zahlungsart: Überweisung
+IBAN: DE44 1002 0500 0001 2345 67
+BIC: HYVEDEMM
+USt-IdNr.: ATU12345678

@@ -1,0 +1,19 @@
+DataVision GmbH
+Branch Office – Berliner Allee 12, 40212 Düsseldorf
+E-Mail: billing@mixcorp.com
+Invoice ID: Re-2025004
+Created: 03.08.2025
+Client: Fa. Testkunde4, Musterstraße 4, Postfach 45 – 4020 Linz
+Purchase Order: Web-Bestellung #2004
+Leistungsbeschreibung:
+Diverse Dienstleistungen, Support, Beratung.
+Summe netto 1.670,18
+USt-Betrag 334,04
+Steuersatz 20 %
+Gesamtbetrag (brutto) EUR 2.004,22
+Währung EUR
+Zahlungsziel Zahlbar bis: 14 Tage
+Zahlungsart PayPal
+IBAN DE23100000001234567890
+BIC UBSWCHZH80A
+VAT ID DE123456789

@@ -1,0 +1,19 @@
+== TechnoWare AG ==
+Postfach 900, 5020 Salzburg
+Contact: support@modern.io
+Rech.-ID: Re-2025001
+Erstellt am: 18.08.2025
+Empfänger: Fa. Testkunde1, Musterstraße 1, Postfach 45 – 4020 Linz
+Interne Referenz: Web-Bestellung #2001
+Leistungsbeschreibung:
+Diverse Dienstleistungen, Support, Beratung.
+Summe netto 653,83
+USt-Betrag 130,77
+Steuersatz 20 Prozent
+Gesamtbetrag (brutto) CHF 784,60
+Währung CHF
+Zahlungsziel Zahlbar bis: 14 Tage
+Zahlungsart Rechnung
+IBAN DE23100000001234567890
+BIC HYVEDEMM
+VAT ID DE123456789

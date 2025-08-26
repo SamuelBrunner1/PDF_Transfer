@@ -1,0 +1,21 @@
+NextGen IT Services
+Adresse: Dr.-Karl-Lueger-Straße 5 – 1010 Wien
+E-Mail: office@example.com
+Rechnungsempfänger: Firma XY Kunde6, Kundenstraße 6, 1010 Wien
+Rech.-ID: INV-2025006
+Dokument vom: 04.08.2025
+Kunden-ID: KD-5006
+Ihre Bestellnummer: PO-1006
+Leistungszeitraum: 01.07.2025 – 31.07.2025
+Bitte begleichen bis: binnen 14 Tagen
+Erbrachte Leistung:
+IT-Dienstleistungen, Systemwartung und Support laut Vertrag.
+Zwischensumme (netto): 2.783,08
+USt-Betrag: 556,61
+Steuersatz: 20 Prozent
+Gesamtbetrag (brutto): EUR 3.339,69
+Währung: EUR
+Zahlungsart: Bankeinzug
+IBAN: DE44 1002 0500 0001 2345 67
+BIC: BANKDEFFXXX
+USt-IdNr.: ATU12345678

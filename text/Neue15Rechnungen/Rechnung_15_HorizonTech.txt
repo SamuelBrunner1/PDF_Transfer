@@ -1,0 +1,21 @@
+HorizonTech GmbH
+Adresse: Dr.-Karl-Lueger-Straße 5 – 1010 Wien
+E-Mail: office@example.com
+Rechnungsempfänger: Firma XY Kunde14, Kundenstraße 14, 1010 Wien
+Rech.-ID: INV-2025014
+Dokument vom: 11.07.2025
+Kunden-ID: KD-5014
+Ihre Bestellnummer: PO-1014
+Leistungszeitraum: 01.07.2025 – 31.07.2025
+Bitte begleichen bis: binnen 14 Tagen
+Erbrachte Leistung:
+IT-Dienstleistungen, Systemwartung und Support laut Vertrag.
+Zwischensumme (netto): 508,42
+USt-Betrag: 101,68
+Steuersatz: 20 Prozent
+Gesamtbetrag (brutto): EUR 610,10
+Währung: EUR
+Zahlungsart: Überweisung
+IBAN: AT61 1904 3002 3457 3201
+BIC: HYVEDEMM
+USt-IdNr.: ATU12345678

@@ -1,0 +1,21 @@
+AurumSoft Ltd.
+Adresse: Dr.-Karl-Lueger-Straße 5 – 1010 Wien
+E-Mail: office@example.com
+Rechnungsempfänger: Firma XY Kunde11, Kundenstraße 11, 1010 Wien
+Rech.-ID: INV-2025011
+Dokument vom: 20.07.2025
+Kunden-ID: KD-5011
+Ihre Bestellnummer: PO-1011
+Leistungszeitraum: 01.07.2025 – 31.07.2025
+Bitte begleichen bis: binnen 14 Tagen
+Erbrachte Leistung:
+IT-Dienstleistungen, Systemwartung und Support laut Vertrag.
+Zwischensumme (netto): 1.037,97
+USt-Betrag: 207,59
+Steuersatz: 20%
+Gesamtbetrag (brutto): EUR 1.245,56
+Währung: EUR
+Zahlungsart: Barzahlung
+IBAN: DE23100000001234567890
+BIC: HYVEDEMM
+USt-IdNr.: ATU12345678

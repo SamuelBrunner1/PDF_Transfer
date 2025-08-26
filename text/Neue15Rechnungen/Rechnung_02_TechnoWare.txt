@@ -1,0 +1,21 @@
+TechnoWare AG
+Adresse: Dr.-Karl-Lueger-Straße 5 – 1010 Wien
+E-Mail: office@example.com
+Rechnungsempfänger: Firma XY Kunde1, Kundenstraße 1, 1010 Wien
+Rech.-ID: INV-2025001
+Dokument vom: 19.08.2025
+Kunden-ID: KD-5001
+Ihre Bestellnummer: PO-1001
+Leistungszeitraum: 01.07.2025 – 31.07.2025
+Bitte begleichen bis: binnen 14 Tagen
+Erbrachte Leistung:
+IT-Dienstleistungen, Systemwartung und Support laut Vertrag.
+Zwischensumme (netto): 1.581,89
+USt-Betrag: 316,38
+Steuersatz: 20%
+Gesamtbetrag (brutto): EUR 1.898,27
+Währung: EUR
+Zahlungsart: Rechnung
+IBAN: AT61 1904 3002 3457 3201
+BIC: GENODEF1N02
+USt-IdNr.: ATU12345678

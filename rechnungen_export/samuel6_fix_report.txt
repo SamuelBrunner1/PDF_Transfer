@@ -1,12 +1,12 @@
 fix_json report
-source: C:\Leben\PDF_Transfer\rechnungen_export\samuel6.jsonl
+source: C:\Leben\PDF_Transfer\rechnungen_export\Export_51\samuel6.jsonl
 output: C:\Leben\PDF_Transfer\rechnungen_export\samuel6_fixed.jsonl
 
-records_total: 35
-records_written: 35
+records_total: 51
+records_written: 51
 
 unknown_label_dropped: 0
-kept: 696
-adjusted: 4
+kept: 968
+adjusted: 7
 
 Problems (truncated text shown):

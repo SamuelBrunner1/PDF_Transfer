@@ -3,8 +3,10 @@ from pdf_reader import extract_text_from_pdf
 from ocr_reader import ocr_from_pdf
 
 # Pfad zum PDF-Ordner
-pdf_dir = r"C:\Leben\PDF_Transfer\Rechnungen"
-txt_output_dir = os.path.join(pdf_dir, "txt_export")
+pdf_dir = r"C:\Leben\PDF_Transfer\Rechnungen\15bessereRechnungen"
+txt_output_dir = r"C:\Leben\PDF_Transfer\text\15bessereRechnungen"
+
+
 os.makedirs(txt_output_dir, exist_ok=True)
 
 for filename in os.listdir(pdf_dir):

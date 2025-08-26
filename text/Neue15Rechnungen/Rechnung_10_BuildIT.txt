@@ -1,0 +1,21 @@
+BuildIT Systems
+Adresse: Dr.-Karl-Lueger-Straße 5 – 1010 Wien
+E-Mail: office@example.com
+Rechnungsempfänger: Firma XY Kunde9, Kundenstraße 9, 1010 Wien
+Rech.-ID: INV-2025009
+Dokument vom: 26.07.2025
+Kunden-ID: KD-5009
+Ihre Bestellnummer: PO-1009
+Leistungszeitraum: 01.07.2025 – 31.07.2025
+Bitte begleichen bis: binnen 14 Tagen
+Erbrachte Leistung:
+IT-Dienstleistungen, Systemwartung und Support laut Vertrag.
+Zwischensumme (netto): 3.520,47
+USt-Betrag: 704,10
+Steuersatz: 20 Prozent
+Gesamtbetrag (brutto): EUR 4.224,57
+Währung: EUR
+Zahlungsart: Überweisung
+IBAN: CH93 0076 2011 6238 5295 7
+BIC: GENODEF1N02
+USt-IdNr.: ATU12345678

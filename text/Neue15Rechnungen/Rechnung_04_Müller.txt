@@ -1,0 +1,21 @@
+Müller & Partner OHG
+Adresse: Dr.-Karl-Lueger-Straße 5 – 1010 Wien
+E-Mail: office@example.com
+Rechnungsempfänger: Firma XY Kunde3, Kundenstraße 3, 1010 Wien
+Rech.-ID: INV-2025003
+Dokument vom: 13.08.2025
+Kunden-ID: KD-5003
+Ihre Bestellnummer: PO-1003
+Leistungszeitraum: 01.07.2025 – 31.07.2025
+Bitte begleichen bis: binnen 14 Tagen
+Erbrachte Leistung:
+IT-Dienstleistungen, Systemwartung und Support laut Vertrag.
+Zwischensumme (netto): 818,46
+USt-Betrag: 163,69
+Steuersatz: 20 Prozent
+Gesamtbetrag (brutto): EUR 982,15
+Währung: EUR
+Zahlungsart: Bankeinzug
+IBAN: DE23100000001234567890
+BIC: BANKDEFFXXX
+USt-IdNr.: ATU12345678

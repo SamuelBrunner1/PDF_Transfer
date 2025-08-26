@@ -1,0 +1,21 @@
+DataVision GmbH
+Adresse: Dr.-Karl-Lueger-Straße 5 – 1010 Wien
+E-Mail: office@example.com
+Rechnungsempfänger: Firma XY Kunde4, Kundenstraße 4, 1010 Wien
+Rech.-ID: INV-2025004
+Dokument vom: 10.08.2025
+Kunden-ID: KD-5004
+Ihre Bestellnummer: PO-1004
+Leistungszeitraum: 01.07.2025 – 31.07.2025
+Bitte begleichen bis: binnen 14 Tagen
+Erbrachte Leistung:
+IT-Dienstleistungen, Systemwartung und Support laut Vertrag.
+Zwischensumme (netto): 1.396,18
+USt-Betrag: 279,23
+Steuersatz: 20%
+Gesamtbetrag (brutto): EUR 1.675,41
+Währung: EUR
+Zahlungsart: PayPal
+IBAN: DE23100000001234567890
+BIC: BANKDEFFXXX
+USt-IdNr.: ATU12345678

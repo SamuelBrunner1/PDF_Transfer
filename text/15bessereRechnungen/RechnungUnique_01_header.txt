@@ -1,0 +1,15 @@
+Unique Corp 0 GmbH
+Adresse: Headerstraße 99, 1010 Wien
+Rechnung vom: 23.08.2025
+Rechnungsnummer: Uni-2025000
+Leistung: Lieferung von Waren und Dienstleistungen gemäß Bestellung.
+Summe netto 3.753,88
+USt-Betrag 750,78
+Steuersatz 20%
+Gesamtbetrag (brutto) USD 4.504,66
+Währung USD
+Fällig bis Bitte begleichen bis 30 Tage
+Zahlungsart Bankeinzug
+IBAN CH93 0076 2011 6238 5295 7
+BIC HYVEDEMM
+USt-IdNr. ATU99887766

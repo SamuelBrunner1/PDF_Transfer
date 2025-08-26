@@ -1,0 +1,17 @@
+Firma 4 Solutions GmbH - INVOICE
+Branch East – Example Street 8, 10115 Berlin
+Email: office@example.com
+Invoice ID: Doc-2025004
+Created on: 26.07.2025
+Leistungszeitraum: 01.08.2025 – 31.08.2025
+Erbrachte Leistungen: Beratungs- und Support-Dienstleistungen.
+Subtotal 4.227,27
+UST-Betrag 845,45
+Steuersatz 20 %
+Gesamtbetrag (brutto) USD 5.072,72
+Währung USD
+Fällig bis binnen 14 Tagen
+Zahlungsart SEPA-Basislastschrift
+IBAN DE23100000001234567890
+BIC GENODEF1N02
+UID-Nr. ATU87654321
