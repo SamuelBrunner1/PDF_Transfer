@@ -4,10 +4,20 @@ import io
 import re
 import spacy
 import datetime
+import sys, os
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
 
-from pdf_reader import extract_text_from_pdf
-from ocr_reader import ocr_from_pdf
-from patterns import FIELD_PATTERNS
+
+# wenn du mit "streamlit run app/app.py" startest
+from utils.pdf_reader import extract_text_from_pdf
+from utils.ocr_reader import ocr_from_pdf
+from utils.patterns import FIELD_PATTERNS
+# ggf.: from utils.nlp_extractor import load_ner_model
+
+
+
 
 # Optional: Validierung
 try:
@@ -17,7 +27,8 @@ except Exception:
 
 # --- NER-Modell laden ---
 try:
-    nlp = spacy.load("ner_model")  # relativer Pfad zu deinem trainierten Modell
+   nlp = spacy.load("models/ner_model")
+  # relativer Pfad zu deinem trainierten Modell
 except Exception:
     nlp = None
     st.error("❌ Konnte das NER-Modell nicht laden. Bitte stelle sicher, dass der Ordner 'ner_model' existiert.")

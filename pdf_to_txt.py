@@ -1,6 +1,6 @@
 import os
-from pdf_reader import extract_text_from_pdf
-from ocr_reader import ocr_from_pdf
+from app.utils.pdf_reader import extract_text_from_pdf
+from app.utils.ocr_reader import ocr_from_pdf
 
 # Pfad zum PDF-Ordner
 pdf_dir = r"C:\Leben\PDF_Transfer\Rechnungen\15bessereRechnungen"
