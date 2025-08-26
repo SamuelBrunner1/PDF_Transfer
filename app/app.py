@@ -1,77 +1,72 @@
+# app/app.py
 import streamlit as st
 import pandas as pd
 import io
 import re
 import spacy
 import datetime
+from datetime import date
 import sys, os
 
-# --- Pfad-Setup (damit utils/ importierbar ist) ---
+# --- Projekt-Root in den Pfad aufnehmen (wenn nötig) ---
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-# --- Utils laden ---
+# --- Utils importieren ---
 from utils.pdf_reader import extract_text_from_pdf
 from utils.ocr_reader import ocr_from_pdf
 from utils.patterns import FIELD_PATTERNS
-
 # Optional: Validierung
 try:
     from validation import validate_fields
 except Exception:
     validate_fields = None
 
-# --- NER-Modell laden (relativ: models/ner_model) ---
-try:
-    nlp = spacy.load("models/ner_model")
-except Exception:
-    nlp = None
-    st.error("❌ Konnte das NER-Modell nicht laden. Stelle sicher, dass 'models/ner_model' existiert.")
+# --- NER-Modell laden ---
+def load_ner_model():
+    """
+    Lädt dein trainiertes spaCy-Modell aus models/.
+    Bevorzugt 'ner_model_best', fällt zurück auf 'ner_model'.
+    """
+    try:
+        return spacy.load(os.path.join(ROOT, "models", "ner_model_best"))
+    except Exception:
+        try:
+            return spacy.load(os.path.join(ROOT, "models", "ner_model"))
+        except Exception:
+            return None
 
-# --- Optionales CSS ---
+nlp = load_ner_model()
+if nlp is None:
+    st.error("❌ Konnte das NER-Modell nicht laden. Lege einen Ordner 'models/ner_model_best' oder 'models/ner_model' ab.")
+
+# --- Optional: CSS laden ---
 try:
-    with open("style.css", "r", encoding="utf-8") as f:
+    with open(os.path.join(ROOT, "style.css"), "r", encoding="utf-8") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 except FileNotFoundError:
     pass
 
 st.title("📄 PDF-Rechnungsanalysator")
 
-# --- Session-State init ---
+# ---------------------- Session-State init & Quota ----------------------
+FREE_QUOTA = 5          # Gratis-PDFs pro Session/Tag
+MAX_FILESIZE_MB = 5     # Upload-Grenze
+
 if "data" not in st.session_state:
     st.session_state["data"] = []
 if "used_quota" not in st.session_state:
     st.session_state["used_quota"] = 0
+if "quota_date" not in st.session_state or st.session_state["quota_date"] != date.today().isoformat():
+    # Tages-Reset
+    st.session_state["quota_date"] = date.today().isoformat()
+    st.session_state["used_quota"] = 0
 
-# ---------------------- Normalisierung & Mapping ----------------------
-def normalize_amount(s: str) -> str:
-    """ 'EUR 2.160,00' -> '2160.00' """
-    if not s:
-        return s
-    s = s.strip().replace("€", "").replace("EUR", "").replace("eur", "")
-    s = s.replace("\u00A0", " ").replace(" ", "")
-    s = s.replace(".", "").replace(",", ".")
-    m = re.search(r"[+-]?\d+(?:\.\d+)?", s)
-    return m.group(0) if m else s
+def quota_left() -> int:
+    return max(0, FREE_QUOTA - st.session_state["used_quota"])
 
-def normalize_date(s: str) -> str:
-    """ gängige deutsche Formate auf ISO (YYYY-MM-DD) """
-    if not s:
-        return s
-    s = s.strip().replace("\u00A0", " ")
-    fmts = ["%d.%m.%Y", "%d.%m.%y", "%Y-%m-%d", "%Y.%m.%d"]
-    for fmt in fmts:
-        try:
-            return datetime.datetime.strptime(s, fmt).date().isoformat()
-        except ValueError:
-            pass
-    m = re.search(r"\b(\d{1,2}\.\d{1,2}\.\d{2,4})\b", s)
-    if m:
-        return normalize_date(m.group(1))
-    return s
-
-# Mapping: NER-Label -> Spaltenname
+# ---------------------- Feld-Mapping & Normalisierung ----------------------
 NER_TO_FIELD = {
     "RECHNUNGSNUMMER": "Rechnungsnummer",
     "RECHNUNGSDATUM": "Datum",
@@ -97,7 +92,30 @@ NER_TO_FIELD = {
 AMOUNT_FIELDS = {"Betrag (€)", "Zwischensumme", "USt_Betrag"}
 DATE_FIELDS   = {"Datum", "Leistungsdatum", "Zahlungsziel"}
 
-# ---------------------- Felder-Auswahl ----------------------
+def normalize_amount(s: str) -> str:
+    if not s:
+        return s
+    s = s.strip().replace("€", "").replace("EUR", "").replace("eur", "").replace("\u00A0", " ")
+    s = s.replace(" ", "").replace(".", "").replace(",", ".")
+    m = re.search(r"[+-]?\d+(?:\.\d+)?", s)
+    return m.group(0) if m else s
+
+def normalize_date(s: str) -> str:
+    if not s:
+        return s
+    s = s.strip().replace("\u00A0", " ")
+    fmts = ["%d.%m.%Y", "%d.%m.%y", "%Y-%m-%d", "%Y.%m.%d"]
+    for fmt in fmts:
+        try:
+            return datetime.datetime.strptime(s, fmt).date().isoformat()
+        except ValueError:
+            pass
+    m = re.search(r"\b(\d{1,2}\.\d{1,2}\.\d{2,4})\b", s)
+    if m:
+        return normalize_date(m.group(1))
+    return s
+
+# ---------------------- UI: Felder auswählen ----------------------
 st.header("🔍 Felder auswählen")
 selected_fields = st.multiselect(
     "Wähle die Felder aus, die du extrahieren möchtest:",
@@ -106,46 +124,55 @@ selected_fields = st.multiselect(
 )
 
 if selected_fields:
-    st.caption("Aktive Felder: " + ", ".join(f"**{f}**" for f in selected_fields))
+    st.subheader("✅ Aktive Extraktionsfelder")
+    st.markdown(" • " + "\n • ".join(f"**{f}**" for f in selected_fields))
+
+# ---------------------- Datenschutz-Hinweis ----------------------
+st.subheader("🔐 Datenschutz")
+agree = st.checkbox(
+    "Ich bestätige: Ich lade keine sensiblen personenbezogenen Daten hoch. "
+    "Die Dateien werden nur flüchtig verarbeitet und nicht gespeichert.",
+    value=True
+)
+if not agree:
+    st.stop()
 
 # ---------------------- Upload & Analyse ----------------------
-FREE_QUOTA = 5          # max. gratis PDFs pro Session
-MAX_FILESIZE_MB = 5     # Dateigrößenlimit
-
-def quota_left() -> int:
-    return max(0, FREE_QUOTA - st.session_state["used_quota"])
-
 st.header("📂 PDF-Dateien hochladen")
-st.caption(f"Du kannst noch **{quota_left()}** von {FREE_QUOTA} Gratis-PDFs hochladen.")
+st.caption(
+    f"Du kannst noch **{quota_left()}** von {FREE_QUOTA} Gratis-PDFs analysieren "
+    f"(bereits genutzt: {st.session_state['used_quota']})."
+)
 
 pdf_files = st.file_uploader(
     "Wähle PDF-Dateien aus", type="pdf", accept_multiple_files=True, key="uploader"
 )
 
-# Sanfte Bremse auf Quota
+# Nur Hinweis – wir kappen erst beim Start
 if pdf_files and len(pdf_files) > quota_left():
-    st.warning(f"Nur {quota_left()} Datei(en) erlaubt. Auswahl wurde gekürzt.")
-    pdf_files = pdf_files[:quota_left()]
+    st.warning(
+        f"Du hast aktuell noch {quota_left()} frei. "
+        f"Es werden nur die ersten {quota_left()} Datei(en) analysiert."
+    )
 
-if pdf_files and st.button("Analyse starten", type="primary", disabled=quota_left()==0):
+if pdf_files and st.button("Analyse starten", type="primary", disabled=quota_left() == 0):
+    files_to_process = pdf_files[:quota_left()]
     processed = 0
-    rows_for_table = []
 
-    for pdf_file in pdf_files:
+    for pdf_file in files_to_process:
         pdf_bytes = pdf_file.read()
 
-        # Dateigröße prüfen
+        # Größenlimit
         if len(pdf_bytes) > MAX_FILESIZE_MB * 1024 * 1024:
             st.warning(f"{pdf_file.name}: Datei > {MAX_FILESIZE_MB} MB – übersprungen.")
             continue
 
-        # Text extrahieren (kein Debug-Print!)
+        # Text beschaffen (PDF-Extraktion, ggf. OCR)
         text = extract_text_from_pdf(io.BytesIO(pdf_bytes)) or ""
         if not text.strip():
-            st.info(f"OCR wird verwendet für {pdf_file.name}…")
             text = ocr_from_pdf(io.BytesIO(pdf_bytes)) or ""
 
-        # --- NER (ohne Ausgabe) ---
+        # --- NER (ohne Anzeige der rohen Entitäten) ---
         ner_values = {}
         if nlp:
             doc = nlp(text)
@@ -160,42 +187,45 @@ if pdf_files and st.button("Analyse starten", type="primary", disabled=quota_lef
                     val = normalize_date(val)
                 ner_values[fld] = val
 
-        # --- Zusammenführen: NER > Regex (ohne Einzel-Ausgabe) ---
-        parsed_data = {}
+        # --- NER > Regex-Fallback für ausgewählte Felder ---
+        parsed = {}
         for field in selected_fields:
             if field in ner_values and ner_values[field]:
-                parsed_data[field] = ner_values[field]
+                parsed[field] = ner_values[field]
             else:
                 pattern = FIELD_PATTERNS.get(field)
                 if pattern:
-                    match = re.search(pattern, text)
-                    val = match.group(1) if match else "Nicht gefunden"
+                    m = re.search(pattern, text)
+                    val = m.group(1) if m else "Nicht gefunden"
                     if field in AMOUNT_FIELDS and val != "Nicht gefunden":
                         val = normalize_amount(val)
                     elif field in DATE_FIELDS and val != "Nicht gefunden":
                         val = normalize_date(val)
-                    parsed_data[field] = val
+                    parsed[field] = val
                 else:
-                    parsed_data[field] = "Nicht definiert"
+                    parsed[field] = "Nicht definiert"
 
-        # --- Validierung (nur kompakte Warnung, keine Detail-Listen) ---
+        # --- Validierung ---
         if validate_fields:
-            issues = validate_fields(parsed_data)
+            issues = validate_fields(parsed)
             if issues:
-                st.warning("⚠ Einige Felder wirken inkonsistent (Validierung).")
+                st.warning("⚠ Mögliche Unstimmigkeiten erkannt:")
+                for k, msg in issues.items():
+                    st.text(f"{k}: {msg}")
 
-        if any(val != "Nicht gefunden" for val in parsed_data.values()):
-            rows_for_table.append(parsed_data)
+        # Ergebnis speichern (keine Rohtext-/Entitätenanzeige)
+        if any(val != "Nicht gefunden" for val in parsed.values()):
+            st.session_state["data"].append(parsed)
+            st.success(f"✅ Erfolgreich extrahiert aus: {pdf_file.name}")
+        else:
+            st.warning(f"❌ Keine passenden Daten in {pdf_file.name} gefunden.")
+
         processed += 1
 
     # Quota erhöhen
     st.session_state["used_quota"] += processed
 
-    # Session-Daten aktualisieren (nur Tabelle/Download später zeigen)
-    if rows_for_table:
-        st.session_state["data"].extend(rows_for_table)
-
-# ---------------------- Tabelle & Excel-Download ----------------------
+# ---------------------- Ergebnisse / Excel ----------------------
 if st.session_state["data"]:
     st.header("📊 Ergebnisse als Excel-Datei")
     df = pd.DataFrame(st.session_state["data"])
@@ -213,6 +243,15 @@ if st.session_state["data"]:
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
 
-# Hinweis bei erreichtem Limit
+# Hinweis bei ausgeschöpfter Quota
 if quota_left() == 0:
     st.error("🎉 Gratislimit erreicht. Kontaktiere uns für einen Testzugang oder ein Upgrade!")
+
+# ---------------------- (Optional) Debug-Tools ----------------------
+with st.expander("⚙️ Debug (nur lokal sichtbar)"):
+    st.write(f"Quota-Datum: {st.session_state['quota_date']}")
+    st.write(f"Used quota: {st.session_state['used_quota']} / {FREE_QUOTA}")
+    if st.button("Gratis-Kontingent zurücksetzen"):
+        st.session_state["used_quota"] = 0
+        st.session_state["quota_date"] = date.today().isoformat()
+        st.rerun()
