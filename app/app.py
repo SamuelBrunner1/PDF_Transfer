@@ -3,12 +3,38 @@ import streamlit as st
 import pandas as pd
 import io
 import re
-import spacy
 import datetime
 from datetime import date
 import sys, os
 from pathlib import Path
-import streamlit_shadcn_ui as ui   # <--- hier dazu
+
+# Optional: shadcn-ui (falls installiert). Sonst fällt die App später auf st.button zurück.
+try:
+    import streamlit_shadcn_ui as ui
+    HAS_SHADCN = True
+except Exception:
+    HAS_SHADCN = False
+
+import spacy
+
+# --- Projekt-Root in den Pfad aufnehmen (wenn nötig) ---
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
+
+# --- Utils importieren ---
+from utils.pdf_reader import extract_text_from_pdf
+from utils.ocr_reader import ocr_from_pdf
+from utils.patterns import FIELD_PATTERNS
+# Optional: Validierung
+try:
+    from validation import validate_fields
+except Exception:
+    validate_fields = None
+
+
+
+
 
 # --- Projekt-Root in den Pfad aufnehmen (wenn nötig) ---
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -201,25 +227,24 @@ if pdf_files and len(pdf_files) > quota_left():
 
 # --- CTA: Analyse starten (zentriert, groß, auffällig) ---
 st.markdown('<div class="cta-hero">', unsafe_allow_html=True)
-col1, col2, col3 = st.columns([1,2,1])
+col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     start_clicked = st.button(
-        " Analyse starten",
+        "🚀 Analyse starten",
         key="start-analyze",
         disabled=(quota_left() == 0 or not pdf_files),
         use_container_width=True
     )
 st.markdown('</div>', unsafe_allow_html=True)
 
-
-
-
 if start_clicked:
-    files_to_process = pdf_files[:quota_left()]
+    files_to_process = (pdf_files or [])[:quota_left()]
     processed = 0
 
     for pdf_file in files_to_process:
         pdf_bytes = pdf_file.read()
+        # ... dein bestehender Code ...
+
 
         # Größenlimit
         if len(pdf_bytes) > MAX_FILESIZE_MB * 1024 * 1024:
@@ -315,3 +340,5 @@ with st.expander("Debug (nur lokal sichtbar)"):
         st.session_state["used_quota"] = 0
         st.session_state["quota_date"] = date.today().isoformat()
         st.rerun()
+
+
