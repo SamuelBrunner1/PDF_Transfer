@@ -1,24 +1,11 @@
 streamlit==1.36.0
-
-# Core
 numpy==1.26.4
 pandas==2.1.4
 Pillow==10.3.0
-
-# PDF / OCR
 pdfplumber==0.11.4
 pymupdf==1.24.9
 pytesseract==0.3.10
 openpyxl==3.1.5
-
-# NLP
 spacy==3.7.4
-# Falls du KEIN eigenes Modell im Repo hast und ein DE-Modell brauchst,
-# nimm den offiziellen Wheel-Link (nicht "de_core_news_md" als PyPI-Name!):
-# https://github.com/explosion/spacy-models/releases/download/de_core_news_md-3.7.0/de_core_news_md-3.7.0-py3-none-any.whl
-
-# Optional, nur wenn du es WIRKLICH nutzt:
+# NUR wenn du shadcn wirklich nutzen willst (du hast Fallback):
 # streamlit-shadcn-ui==0.1.26
-
-
-streamlit-shadcn-ui

@@ -230,7 +230,7 @@ st.markdown('<div class="cta-hero">', unsafe_allow_html=True)
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     start_clicked = st.button(
-        "🚀 Analyse starten",
+        "Analyse starten",
         key="start-analyze",
         disabled=(quota_left() == 0 or not pdf_files),
         use_container_width=True
