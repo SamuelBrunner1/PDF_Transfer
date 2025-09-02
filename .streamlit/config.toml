@@ -1,6 +1,7 @@
 [theme]
-primaryColor = "#007aff"      # Apple Blau
-backgroundColor = "#ffffff"   # Weiß
-secondaryBackgroundColor = "#f5f5f7"  # Apple Light Gray
-textColor = "#000000"         # Schwarz
+base = "dark"                         # <- Dark Mode aktivieren
+primaryColor = "#0A84FF"              # Apple Blue
+backgroundColor = "#252a3bff"           # App-Hintergrund
+secondaryBackgroundColor = "#313a52ff"  # Cards/Sidebar
+textColor = "#F5F7FA"
 font = "sans serif"

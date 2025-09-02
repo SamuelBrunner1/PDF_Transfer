@@ -1,135 +1,240 @@
-@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600&display=swap');
+/* =======================================================
+   Pro Minimal Dark — polished, product-grade
+   ======================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* Global Font & Background */
-html, body, [class*="css"] {
-    font-family: 'SF Pro Display', sans-serif;
-    background-color: #ffffff;
-    color: #000000 !important;
-    margin: 0;
-    padding: 0;
-}
+:root{
+  /* Palette */
+  --bg: #0B0E14;          /* Canvas */
+  --bg-elev: #121722;     /* Cards/sections */
+  --bg-soft: #161C24;     /* Inputs/uploader */
+  --text: #E9EDF5;
+  --text-subtle: #9AA2B1;
+  --border: #1F2535;
 
-/* Hauptcontainer */
-.stApp, .block-container {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
+  --primary: #0A84FF;
+  --primary-700: #096fe0;
 
-/* Texte */
-*, h1, h2, h3, h4, h5, h6, p, span, div, label, button {
-    color: #000000 !important;
-}
-
-/* Buttons */
-.stButton > button, .stDownloadButton > button, .stForm button {
-    background-color: #36b2bb !important;
-    color: #ffffff !important;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 0.8em 2em;
-    border: none;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-}
-.stButton > button:hover, .stDownloadButton > button:hover, .stForm button:hover {
-    background-color: #43c7b1 !important;
+  --radius: 12px;
+  --radius-lg: 14px;
+  --space: 1.1rem;
+  --space-lg: 1.6rem;
 }
 
-/* File Uploader */
-.stFileUploader {
-    background-color: #f2f2f2;
-    border: 2px dashed #ccc;
-    border-radius: 16px;
-    padding: 1.5rem;
-    text-align: center;
-}
-.stFileUploader * {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border: none !important;
+html, body, [class*="css"]{
+  font-family: Inter,-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif !important;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Eingabefelder */
-input[type="text"], textarea, .stTextInput input {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border: 1px solid #000000 !important;
-    border-radius: 8px;
-    padding: 0.5em;
-    font-size: 1rem;
+/* -----------------------------------------------
+   Layout
+   ----------------------------------------------- */
+.block-container{
+  max-width: 840px !important;
+  padding-top: .75rem !important;
 }
 
-/* Placeholder-Text */
-input::placeholder, textarea::placeholder {
-    color: #000000 !important;
-    opacity: 0.5;
+/* -----------------------------------------------
+   Typografie
+   ----------------------------------------------- */
+h1{ font-weight:700; font-size:1.8rem !important; letter-spacing:-0.2px; margin:.3rem 0 1.1rem; }
+h2{ font-weight:600; font-size:1.2rem !important; margin:1.2rem 0 .6rem; }
+h3{ font-weight:700; font-size:1.05rem !important; margin:1.1rem 0 .55rem; }
+p, label, span, small{ color: var(--text); }
+small, .meta, .caption{ color: var(--text-subtle); }
+
+/* kompaktere Captions */
+.css-10trblm, .stCaption, .caption{ font-size:.92rem !important; }
+
+/* -----------------------------------------------
+   Hero / Topbar
+   - Standard: zentrierter „Hero“-Titel
+   - Optional: .topbar--split für alte, gesplittete Leiste
+   ----------------------------------------------- */
+.topbar{
+  display:block;
+  text-align:center;
+  border:none;
+  padding:1.6rem 0 1rem;
+  margin-bottom:.2rem;
+}
+.brand{
+  font-weight:800;
+  letter-spacing:-0.4px;
+  font-size:2.3rem;
+  color: var(--text);
+}
+.top-actions{
+  display:flex;
+  justify-content:center;
+  gap:.5rem;
+  margin-top:.45rem;
+}
+.badge{
+  border:1px solid var(--border);
+  background:#0F1420;
+  color:#C9DAFF;
+  border-radius:999px;
+  padding:.32rem .7rem;
+  font-size:.85rem;
+  font-weight:600;
 }
 
-/* Checkbox Labels */
-.stCheckbox label {
-    color: #000000 !important;
-    font-size: 1rem;
+/* Alternative Layout-Variante bei Bedarf */
+.topbar.topbar--split{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.9rem 0 .8rem; border-bottom:1px solid var(--border);
+}
+.topbar.topbar--split .brand{ font-size:1.5rem; font-weight:700; }
+.topbar.topbar--split .top-actions{ margin-top:0; justify-content:flex-end; }
+
+/* dekorativer, dezenter Divider */
+.divider{
+  height:1px; background:var(--border); opacity:.7;
+  width:72%; margin:1.1rem auto;
 }
 
-/* Tabellen */
-.stDataFrame, .stDataFrame table, .stDataFrame th, .stDataFrame td {
-    background-color: #f9f9f9 !important;
-    color: #000000 !important;
+/* -----------------------------------------------
+   Sections / Cards
+   ----------------------------------------------- */
+.section{
+  background: var(--bg-elev);
+  border:1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  margin: var(--space) 0 var(--space-lg);
+  box-shadow: 0 6px 18px rgba(0,0,0,.22);
 }
 
-/* JSON Output */
-.stJson {
-    background-color: #f0f0f0 !important;
-    color: #000000 !important;
-    border-radius: 8px;
-    padding: 1rem;
+/* -----------------------------------------------
+   Inputs / Selects
+   ----------------------------------------------- */
+input[type="text"], textarea, .stTextInput input, div[data-baseweb="select"]{
+  background: var(--bg-soft) !important;
+  color: var(--text) !important;
+  border:1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  padding:.6rem .75rem !important;
+  font-size:.96rem !important;
+  transition: border .15s ease, box-shadow .15s ease, transform .05s ease;
+}
+input[type="text"]::placeholder, textarea::placeholder{ color: var(--text-subtle) !important; }
+input[type="text"]:focus, textarea:focus,
+.stTextInput input:focus, div[data-baseweb="select"]:focus-within{
+  outline:none !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(10,132,255,0.18) !important;
 }
 
-/* Sidebar */
-.css-1d391kg, .css-12oz5g7 {
-    background-color: #ffffff !important;
-    color: #000000 !important;
+/* BaseWeb Select (Multi/Single) */
+div[data-baseweb="select"] *{ background: var(--bg-soft) !important; color: var(--text) !important; }
+div[data-baseweb="select"] div[role="listbox"]{
+  border:1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
 }
 
-/* Entferne Toolbar */
-header[data-testid="stHeader"] {
-    background: none !important;
-    color: transparent;
-    height: 0rem;
+/* Checkbox-Labels etwas luftiger */
+.stCheckbox label{ line-height:1.35; }
+
+/* -----------------------------------------------
+   File Uploader
+   ----------------------------------------------- */
+[data-testid="stFileUploader"] > div{
+  background: var(--bg-soft);
+  border:1px dashed var(--border);
+  border-radius: var(--radius);
+  padding:1rem;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02), 0 6px 18px rgba(0,0,0,.22);
+}
+[data-testid="stFileUploader"] > div:hover{ border-color: var(--primary); }
+
+/* -----------------------------------------------
+   Buttons (Default)
+   ----------------------------------------------- */
+.stButton > button, .stDownloadButton > button, .stForm button{
+  background: var(--primary);
+  color:#fff !important;
+  border:none;
+  border-radius: var(--radius);
+  padding:.65rem 1rem;
+  font-weight:700; font-size:1rem;
+  transition: background .12s ease, transform .05s ease, box-shadow .12s ease;
+  box-shadow: 0 4px 12px rgba(10,132,255,0.25);
+}
+.stButton > button:hover, .stDownloadButton > button:hover, .stForm button:hover{
+  background: var(--primary-700);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(10,132,255,0.35);
+}
+.stButton > button:active{ transform: translateY(0); }
+.stButton > button:disabled, .stDownloadButton > button:disabled{ opacity:.55; box-shadow:none; }
+
+/* -----------------------------------------------
+   CTA Button: „Analyse starten“
+   (nur innerhalb .cta-hero — zentriert, groß, Glow)
+   ----------------------------------------------- */
+.cta-hero .stButton > button{
+  background: var(--primary) !important;
+  color: #fff !important;
+  font-size: 1.2rem !important;
+  padding: 1rem 2rem !important;
+  font-weight: 800 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 6px 18px rgba(10,132,255,0.35) !important;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.cta-hero .stButton > button:hover{
+  background: var(--primary-700) !important;
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 10px 24px rgba(10,132,255,0.45) !important;
+}
+.cta-hero .stButton > button:active{ transform: translateY(0); }
+
+/* -----------------------------------------------
+   Tabellen
+   ----------------------------------------------- */
+.stDataFrame, .stDataFrame table{
+  background: var(--bg-elev) !important;
+  border:1px solid var(--border);
+  border-radius: var(--radius) !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,.22);
+}
+.stDataFrame thead th{
+  background:#141a28 !important;
+  color:var(--text) !important;
+  font-weight:700 !important;
+}
+.stDataFrame tbody tr:nth-child(odd){ background:#121722; }
+.stDataFrame tbody tr:nth-child(even){ background:#101520; }
+
+/* -----------------------------------------------
+   Alerts
+   ----------------------------------------------- */
+.stAlert{
+  background: var(--bg-elev) !important;
+  border:1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,.22);
 }
 
-/* Selectbox & Multiselect Dropdowns */
-div[data-baseweb="select"] {
-    background-color: #ffffff !important;
-    border: 1px solid #000000 !important;
-    border-radius: 8px !important;
-    color: #000000 !important;
-}
-div[data-baseweb="select"] * {
-    color: #000000 !important;
-    background-color: #ffffff !important;
-}
-.css-1wa3eu0-placeholder,
-.css-1uccc91-singleValue {
-    color: #000000 !important;
-}
+/* -----------------------------------------------
+   Links
+   ----------------------------------------------- */
+a, a:visited{ color: var(--primary); text-decoration:none; }
+a:hover{ text-decoration:underline; }
 
-/* Vorschlagsliste (Dropdown) */
-div[data-baseweb="select"] > div {
-    background-color: #ffffff !important;
-    color: #000000 !important;
+/* -----------------------------------------------
+   Sidebar / Header
+   ----------------------------------------------- */
+[data-testid="stSidebar"]{
+  background: var(--bg-elev) !important;
+  border-right:1px solid var(--border);
 }
-
-/* Einzelne Dropdown-Option */
-div[data-baseweb="select"] div[role="option"] {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    font-weight: 500;
-}
-
-/* Hover-Effekt */
-div[data-baseweb="select"] div[role="option"]:hover {
-    background-color: #eeeeee !important;
-    color: #000000 !important;
+header[data-testid="stHeader"]{
+  background:transparent !important;
+  height:0 !important;
+  padding:0 !important;
 }

@@ -7,6 +7,8 @@ import spacy
 import datetime
 from datetime import date
 import sys, os
+from pathlib import Path
+import streamlit_shadcn_ui as ui   # <--- hier dazu
 
 # --- Projekt-Root in den Pfad aufnehmen (wenn nötig) ---
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -41,30 +43,56 @@ nlp = load_ner_model()
 if nlp is None:
     st.error("❌ Konnte das NER-Modell nicht laden. Lege einen Ordner 'models/ner_model_best' oder 'models/ner_model' ab.")
 
-# --- Optional: CSS laden ---
-try:
-    with open(os.path.join(ROOT, "style.css"), "r", encoding="utf-8") as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-except FileNotFoundError:
-    pass
+# --- CSS laden ---
+def inject_css():
+    here = Path(__file__).parent
+    candidate_files = [
+        here / "style.css",
+        here.parent / "style.css",
+        Path(ROOT) / "style.css",
+    ]
+    for p in candidate_files:
+        if p.exists():
+            css = p.read_text(encoding="utf-8")
+            st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
+            return
 
-st.title("📄 PDF-Rechnungsanalysator")
+inject_css()
+
+inject_css()
 
 # ---------------------- Session-State init & Quota ----------------------
-FREE_QUOTA = 5          # Gratis-PDFs pro Session/Tag
-MAX_FILESIZE_MB = 5     # Upload-Grenze
+FREE_QUOTA = 5
+MAX_FILESIZE_MB = 5
 
 if "data" not in st.session_state:
     st.session_state["data"] = []
 if "used_quota" not in st.session_state:
     st.session_state["used_quota"] = 0
 if "quota_date" not in st.session_state or st.session_state["quota_date"] != date.today().isoformat():
-    # Tages-Reset
     st.session_state["quota_date"] = date.today().isoformat()
     st.session_state["used_quota"] = 0
 
 def quota_left() -> int:
     return max(0, FREE_QUOTA - st.session_state["used_quota"])
+
+# ---------------------- Hero Header ----------------------
+# ---------------------- Top-Bar ----------------------
+st.markdown(f"""
+<div class="topbar" style="border:none; padding:1.8rem 0 1.2rem; display:block; text-align:center;">
+  <div class="brand" style="font-size:2.3rem; font-weight:750; letter-spacing:-0.4px; color:#E9EDF5;">
+    PDF-Rechnungsanalysator
+  </div>
+  <div class="top-actions" style="margin-top:.45rem;">
+    <span class="badge" style="background:#0F1420; border:1px solid #1F2535; color:#C9DAFF;">
+      Uploads verfügbar: {quota_left()} von {FREE_QUOTA}
+    </span>
+  </div>
+</div>
+""", unsafe_allow_html=True)
+
+
+
 
 # ---------------------- Feld-Mapping & Normalisierung ----------------------
 NER_TO_FIELD = {
@@ -115,47 +143,78 @@ def normalize_date(s: str) -> str:
         return normalize_date(m.group(1))
     return s
 
-# ---------------------- UI: Felder auswählen ----------------------
-st.header("🔍 Felder auswählen")
+# ---------------------- Felder auswählen ----------------------
+# ---------------------- Felder auswählen ----------------------
+st.markdown("<h1>Felder auswählen</h1>", unsafe_allow_html=True)
+st.markdown('<div class="muted">Wähle die Felder aus, die du extrahieren möchtest:</div>', unsafe_allow_html=True)
+
 selected_fields = st.multiselect(
-    "Wähle die Felder aus, die du extrahieren möchtest:",
+    " ",  # Label leer, Überschrift übernimmt
     options=list(FIELD_PATTERNS.keys()),
     default=["Rechnungsnummer", "Datum", "Betrag (€)"]
 )
 
 if selected_fields:
-    st.subheader("✅ Aktive Extraktionsfelder")
-    st.markdown(" • " + "\n • ".join(f"**{f}**" for f in selected_fields))
+    st.markdown('<div class="muted">Aktive Extraktionsfelder</div>', unsafe_allow_html=True)
+    st.write("• " + " • ".join(selected_fields))
 
-# ---------------------- Datenschutz-Hinweis ----------------------
-st.subheader("🔐 Datenschutz")
+st.markdown('<div style="height:1px; background:var(--border); opacity:.7; width:72%; margin:1.1rem auto;"></div>', unsafe_allow_html=True)
+
+# ---------------------- Datenschutz ----------------------
+# ---------------------- Datenschutz ----------------------
+st.markdown("<h1>Datenschutz</h1>", unsafe_allow_html=True)
+st.markdown(
+    '<div class="muted">Ich bestätige: keine sensiblen personenbezogenen Daten. Dateien werden nur temporär verarbeitet</div>',
+    unsafe_allow_html=True
+)
+
 agree = st.checkbox(
-    "Ich bestätige: Ich lade keine sensiblen personenbezogenen Daten hoch. "
-    "Die Dateien werden nur flüchtig verarbeitet und nicht gespeichert.",
+    "Ich bestätige: keine sensiblen personenbezogenen Daten. Dateien werden nur temporär verarbeitet und nicht gespeichert.",
+    key="agree",
     value=True
 )
+
+
 if not agree:
     st.stop()
 
+
+
 # ---------------------- Upload & Analyse ----------------------
-st.header("📂 PDF-Dateien hochladen")
+st.markdown("<h1>PDF-Dateien hochladen</h1>", unsafe_allow_html=True)
 st.caption(
-    f"Du kannst noch **{quota_left()}** von {FREE_QUOTA} Gratis-PDFs analysieren "
+    f"Verfügbar: {quota_left()} von {FREE_QUOTA} kostenlosen Analysen "
     f"(bereits genutzt: {st.session_state['used_quota']})."
 )
 
 pdf_files = st.file_uploader(
-    "Wähle PDF-Dateien aus", type="pdf", accept_multiple_files=True, key="uploader"
+    " ", type="pdf", accept_multiple_files=True, key="uploader"
 )
 
-# Nur Hinweis – wir kappen erst beim Start
+# Hinweis – tatsächliche Kappung erst beim Start
 if pdf_files and len(pdf_files) > quota_left():
     st.warning(
-        f"Du hast aktuell noch {quota_left()} frei. "
-        f"Es werden nur die ersten {quota_left()} Datei(en) analysiert."
+        f"Es sind nur noch {quota_left()} Analysen frei. "
+        f"Es werden die ersten {quota_left()} Datei(en) verarbeitet."
     )
 
-if pdf_files and st.button("Analyse starten", type="primary", disabled=quota_left() == 0):
+
+# --- CTA: Analyse starten (zentriert, groß, auffällig) ---
+st.markdown('<div class="cta-hero">', unsafe_allow_html=True)
+col1, col2, col3 = st.columns([1,2,1])
+with col2:
+    start_clicked = st.button(
+        " Analyse starten",
+        key="start-analyze",
+        disabled=(quota_left() == 0 or not pdf_files),
+        use_container_width=True
+    )
+st.markdown('</div>', unsafe_allow_html=True)
+
+
+
+
+if start_clicked:
     files_to_process = pdf_files[:quota_left()]
     processed = 0
 
@@ -164,7 +223,7 @@ if pdf_files and st.button("Analyse starten", type="primary", disabled=quota_lef
 
         # Größenlimit
         if len(pdf_bytes) > MAX_FILESIZE_MB * 1024 * 1024:
-            st.warning(f"{pdf_file.name}: Datei > {MAX_FILESIZE_MB} MB – übersprungen.")
+            st.warning(f"{pdf_file.name}: Datei größer als {MAX_FILESIZE_MB} MB – übersprungen.")
             continue
 
         # Text beschaffen (PDF-Extraktion, ggf. OCR)
@@ -172,7 +231,7 @@ if pdf_files and st.button("Analyse starten", type="primary", disabled=quota_lef
         if not text.strip():
             text = ocr_from_pdf(io.BytesIO(pdf_bytes)) or ""
 
-        # --- NER (ohne Anzeige der rohen Entitäten) ---
+        # --- NER ---
         ner_values = {}
         if nlp:
             doc = nlp(text)
@@ -187,7 +246,7 @@ if pdf_files and st.button("Analyse starten", type="primary", disabled=quota_lef
                     val = normalize_date(val)
                 ner_values[fld] = val
 
-        # --- NER > Regex-Fallback für ausgewählte Felder ---
+        # --- Regex-Fallback für ausgewählte Felder ---
         parsed = {}
         for field in selected_fields:
             if field in ner_values and ner_values[field]:
@@ -209,21 +268,22 @@ if pdf_files and st.button("Analyse starten", type="primary", disabled=quota_lef
         if validate_fields:
             issues = validate_fields(parsed)
             if issues:
-                st.warning("⚠ Mögliche Unstimmigkeiten erkannt:")
                 for k, msg in issues.items():
-                    st.text(f"{k}: {msg}")
+                    st.warning(f"{k}: {msg}")
 
-        # Ergebnis speichern (keine Rohtext-/Entitätenanzeige)
+        # Ergebnis speichern
         if any(val != "Nicht gefunden" for val in parsed.values()):
             st.session_state["data"].append(parsed)
-            st.success(f"✅ Erfolgreich extrahiert aus: {pdf_file.name}")
+            st.success(f"Daten extrahiert aus: {pdf_file.name}")
         else:
-            st.warning(f"❌ Keine passenden Daten in {pdf_file.name} gefunden.")
+            st.warning(f"Keine relevanten Daten in {pdf_file.name} gefunden.")
 
         processed += 1
 
     # Quota erhöhen
     st.session_state["used_quota"] += processed
+
+
 
 # ---------------------- Ergebnisse / Excel ----------------------
 if st.session_state["data"]:
@@ -248,7 +308,7 @@ if quota_left() == 0:
     st.error("🎉 Gratislimit erreicht. Kontaktiere uns für einen Testzugang oder ein Upgrade!")
 
 # ---------------------- (Optional) Debug-Tools ----------------------
-with st.expander("⚙️ Debug (nur lokal sichtbar)"):
+with st.expander("Debug (nur lokal sichtbar)"):
     st.write(f"Quota-Datum: {st.session_state['quota_date']}")
     st.write(f"Used quota: {st.session_state['used_quota']} / {FREE_QUOTA}")
     if st.button("Gratis-Kontingent zurücksetzen"):
